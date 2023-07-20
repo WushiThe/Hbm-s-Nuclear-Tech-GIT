@@ -3318,6 +3318,7 @@ item.particle_muon.name=Muon Capsule
 item.particle_sparkticle.name=Sparkticle Capsule
 item.particle_strange.name=Strange Quark Capsule
 item.particle_tachyon.name=Tachyon Capsule
+item.particle_graviton.name=§7Graviton Capsule§r
 item.parts_legendary.name=Legendary Parts
 item.peas.name=Peas
 item.pedestal_steel.name=Steel Pedestal

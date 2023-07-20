@@ -111,7 +111,7 @@ public class HadronRecipes extends SerializableRecipe {
 				new ItemStack(ModItems.particle_digamma),
 				1500000,
 				new ItemStack(ModItems.particle_graviton),
-				new ItemStack(ModItems.particle_graviton),
+				new ItemStack(ModItems.powder_euphemium),
 				false));
 		recipes.add(new HadronRecipe(
 				new ItemStack(Items.chicken),
