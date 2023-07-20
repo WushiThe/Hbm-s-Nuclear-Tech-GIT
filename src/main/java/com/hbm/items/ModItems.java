@@ -3971,10 +3971,10 @@ public class ModItems {
 		singularity_micro = new ItemDrop().setUnlocalizedName("singularity_micro")
 				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste)
 				.setTextureName(RefStrings.MODID + ":singularity_micro");
-		particle_graviton = new ItemUnstable(radius: 500, timer:600).setUnlocalizedName("particle_graviton").setCreativeTab(MainRegistry.controlTab)
+		particle_graviton = new ItemUnstable(radius:500, timer:600).setUnlocalizedName("particle_graviton").setCreativeTab(MainRegistry.controlTab)
 				.setContainerItem(ModItems.particle_empty).setTextureName(RefStrings.MODID + ":particle_graviton");
 
-		singularity = new ItemDrop().setUnlocalizedName("singularity").setMaxStackSize(1)
+		singularity = new ItemDrop().setUnlocalizedName("singularity").setMaxStackSize(1)cf
 				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste)
 				.setTextureName(RefStrings.MODID + ":singularity");
 		singularity_counter_resonant = new ItemDrop().setUnlocalizedName("singularity_counter_resonant")
