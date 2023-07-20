@@ -33,33 +33,32 @@ public class ItemDrop extends Item {
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 		if (entityItem != null) {
-			
-			if(this == ModItems.beta) {
+
+			if (this == ModItems.beta) {
 				entityItem.setDead();
 				return true;
 			}
-			
+
 			ItemStack stack = entityItem.getEntityItem();
 
 			if (stack.getItem() != null && stack.getItem() == ModItems.detonator_deadman) {
 				if (!entityItem.worldObj.isRemote) {
-					
-					if(stack.stackTagCompound != null) {
-						
-						 int x = stack.stackTagCompound.getInteger("x");
-						 int y = stack.stackTagCompound.getInteger("y");
-						 int z = stack.stackTagCompound.getInteger("z");
-						 
-						 if(entityItem.worldObj.getBlock(x, y, z) instanceof IBomb)
-						 {
-							if(!entityItem.worldObj.isRemote)
-							{
-								((IBomb)entityItem.worldObj.getBlock(x, y, z)).explode(entityItem.worldObj, x, y, z);
 
-					    		if(GeneralConfig.enableExtendedLogging)
-					    			MainRegistry.logger.log(Level.INFO, "[DET] Tried to detonate block at " + x + " / " + y + " / " + z + " by dead man's switch!");
+					if (stack.stackTagCompound != null) {
+
+						int x = stack.stackTagCompound.getInteger("x");
+						int y = stack.stackTagCompound.getInteger("y");
+						int z = stack.stackTagCompound.getInteger("z");
+
+						if (entityItem.worldObj.getBlock(x, y, z) instanceof IBomb) {
+							if (!entityItem.worldObj.isRemote) {
+								((IBomb) entityItem.worldObj.getBlock(x, y, z)).explode(entityItem.worldObj, x, y, z);
+
+								if (GeneralConfig.enableExtendedLogging)
+									MainRegistry.logger.log(Level.INFO, "[DET] Tried to detonate block at " + x + " / "
+											+ y + " / " + z + " by dead man's switch!");
 							}
-						 }
+						}
 					}
 
 					entityItem.worldObj.createExplosion(entityItem, entityItem.posX, entityItem.posY,
@@ -72,33 +71,41 @@ public class ItemDrop extends Item {
 					entityItem.worldObj.createExplosion(entityItem, entityItem.posX, entityItem.posY,
 							entityItem.posZ, 15.0F, true);
 
-		    		if(GeneralConfig.enableExtendedLogging)
-		    			MainRegistry.logger.log(Level.INFO, "[DET] Detonated dead man's explosive at " + ((int)entityItem.posX) + " / " + ((int)entityItem.posY) + " / " + ((int)entityItem.posZ) + "!");
+					if (GeneralConfig.enableExtendedLogging)
+						MainRegistry.logger.log(Level.INFO,
+								"[DET] Detonated dead man's explosive at " + ((int) entityItem.posX) + " / "
+										+ ((int) entityItem.posY) + " / " + ((int) entityItem.posZ) + "!");
 				}
-				
+
 				entityItem.setDead();
 			}
-			
+
 			if (entityItem.onGround) {
 
 				if (stack.getItem() != null && stack.getItem() == ModItems.cell_antimatter && WeaponConfig.dropCell) {
 					if (!entityItem.worldObj.isRemote) {
-						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 3F).makeAmat().explode();
+						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 3F)
+								.makeAmat().explode();
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.pellet_antimatter && WeaponConfig.dropCell) {
 					if (!entityItem.worldObj.isRemote) {
-						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 20F).makeAmat().explode();
+						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 20F)
+								.makeAmat().explode();
 					}
 				}
-				if (stack.getItem() != null && stack.getItem() == ModItems.cell_anti_schrabidium && WeaponConfig.dropCell) {
+				if (stack.getItem() != null && stack.getItem() == ModItems.cell_anti_schrabidium
+						&& WeaponConfig.dropCell) {
 					if (!entityItem.worldObj.isRemote) {
-						EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, BombConfig.aSchrabRadius);
-						if(!ex.isDead) {
-							entityItem.worldObj.playSoundEffect(entityItem.posX, entityItem.posY, entityItem.posZ, "random.explode", 100.0F, entityItem.worldObj.rand.nextFloat() * 0.1F + 0.9F);
+						EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(entityItem.worldObj,
+								entityItem.posX, entityItem.posY, entityItem.posZ, BombConfig.aSchrabRadius);
+						if (!ex.isDead) {
+							entityItem.worldObj.playSoundEffect(entityItem.posX, entityItem.posY, entityItem.posZ,
+									"random.explode", 100.0F, entityItem.worldObj.rand.nextFloat() * 0.1F + 0.9F);
 							entityItem.worldObj.spawnEntityInWorld(ex);
 
-							EntityCloudFleija cloud = new EntityCloudFleija(entityItem.worldObj, BombConfig.aSchrabRadius);
+							EntityCloudFleija cloud = new EntityCloudFleija(entityItem.worldObj,
+									BombConfig.aSchrabRadius);
 							cloud.posX = entityItem.posX;
 							cloud.posY = entityItem.posY;
 							cloud.posZ = entityItem.posZ;
@@ -116,7 +123,8 @@ public class ItemDrop extends Item {
 						entityItem.worldObj.spawnEntityInWorld(bl);
 					}
 				}
-				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_counter_resonant && WeaponConfig.dropSing) {
+				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_counter_resonant
+						&& WeaponConfig.dropSing) {
 					if (!entityItem.worldObj.isRemote) {
 
 						EntityVortex bl = new EntityVortex(entityItem.worldObj, 2.5F);
@@ -126,7 +134,8 @@ public class ItemDrop extends Item {
 						entityItem.worldObj.spawnEntityInWorld(bl);
 					}
 				}
-				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_super_heated && WeaponConfig.dropSing) {
+				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_super_heated
+						&& WeaponConfig.dropSing) {
 					if (!entityItem.worldObj.isRemote) {
 
 						EntityVortex bl = new EntityVortex(entityItem.worldObj, 2.5F);
@@ -137,6 +146,15 @@ public class ItemDrop extends Item {
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.black_hole && WeaponConfig.dropSing) {
+					if (!entityItem.worldObj.isRemote) {
+						EntityBlackHole bl = new EntityBlackHole(entityItem.worldObj, 1.5F);
+						bl.posX = entityItem.posX;
+						bl.posY = entityItem.posY;
+						bl.posZ = entityItem.posZ;
+						entityItem.worldObj.spawnEntityInWorld(bl);
+					}
+				}
+				if (stack.getItem() != null && stack.getItem() == ModItems.particle_graviton && WeaponConfig.dropSing) {
 					if (!entityItem.worldObj.isRemote) {
 						EntityBlackHole bl = new EntityBlackHole(entityItem.worldObj, 1.5F);
 						bl.posX = entityItem.posX;
@@ -156,8 +174,10 @@ public class ItemDrop extends Item {
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.crystal_xen && WeaponConfig.dropCrys) {
 					if (!entityItem.worldObj.isRemote) {
-						ExplosionChaos.floater(entityItem.worldObj, (int)entityItem.posX, (int)entityItem.posY, (int)entityItem.posZ, 25, 75);
-						ExplosionChaos.move(entityItem.worldObj, (int)entityItem.posX, (int)entityItem.posY, (int)entityItem.posZ, 25, 0, 75, 0);
+						ExplosionChaos.floater(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
+								(int) entityItem.posZ, 25, 75);
+						ExplosionChaos.move(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
+								(int) entityItem.posZ, 25, 0, 75, 0);
 					}
 				}
 
@@ -166,11 +186,10 @@ public class ItemDrop extends Item {
 			}
 		}
 		return false;
-    }
-	
+	}
+
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
-	{
+	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 		if (this == ModItems.cell_antimatter) {
 			list.add("Warning: Exposure to matter will");
 			list.add("lead to violent annihilation!");
@@ -214,49 +233,47 @@ public class ItemDrop extends Item {
 		if (this == ModItems.detonator_deadman) {
 			list.add("Shift right-click to set position,");
 			list.add("drop to detonate!");
-			if(itemstack.getTagCompound() == null)
-			{
+			if (itemstack.getTagCompound() == null) {
 				list.add("No position set!");
 			} else {
-				list.add("Set pos to " + itemstack.stackTagCompound.getInteger("x") + ", " + itemstack.stackTagCompound.getInteger("y") + ", " + itemstack.stackTagCompound.getInteger("z"));
+				list.add("Set pos to " + itemstack.stackTagCompound.getInteger("x") + ", "
+						+ itemstack.stackTagCompound.getInteger("y") + ", "
+						+ itemstack.stackTagCompound.getInteger("z"));
 			}
 		}
 		if (this == ModItems.detonator_de) {
 			list.add("Explodes when dropped!");
 		}
-		
+
 		list.add(EnumChatFormatting.RED + "[" + I18nUtil.resolveKey("trait.drop") + "]");
 	}
-	
+
 	@Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
-    {
-		if(this != ModItems.detonator_deadman) {
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_,
+			float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+		if (this != ModItems.detonator_deadman) {
 			return super.onItemUse(stack, player, world, x, y, z, p_77648_7_, p_77648_8_, p_77648_9_, p_77648_10_);
 		}
-		
-		if(stack.stackTagCompound == null)
-		{
+
+		if (stack.stackTagCompound == null) {
 			stack.stackTagCompound = new NBTTagCompound();
 		}
-		
-		if(player.isSneaking())
-		{
+
+		if (player.isSneaking()) {
 			stack.stackTagCompound.setInteger("x", x);
 			stack.stackTagCompound.setInteger("y", y);
 			stack.stackTagCompound.setInteger("z", z);
-			
-			if(world.isRemote)
-			{
+
+			if (world.isRemote) {
 				player.addChatMessage(new ChatComponentText("Position set!"));
 			}
-			
-	        world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F);
-        	
+
+			world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F);
+
 			return true;
 		}
-		
+
 		return false;
-    }
+	}
 
 }
