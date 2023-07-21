@@ -187,6 +187,15 @@ public class ItemDrop extends Item {
 								(int) entityItem.posZ, 25, 75);
 						ExplosionChaos.move(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
 								(int) entityItem.posZ, 25, 0, 75, 0);
+
+					}
+				}
+				if (stack.getItem() != null && stack.getItem() == ModItems.particle_lutece && WeaponConfig.dropCrys) {
+					if (!entityItem.worldObj.isRemote) {
+						ExplosionChaos.floater(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
+								(int) entityItem.posZ, 35, 75);
+						ExplosionChaos.move(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
+								(int) entityItem.posZ, 35, 0, 75, 0);
 					}
 				}
 

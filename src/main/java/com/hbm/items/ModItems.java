@@ -3969,7 +3969,7 @@ public class ModItems {
 		particle_digamma = new ItemDigamma(60).setUnlocalizedName("particle_digamma")
 				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.particle_empty)
 				.setTextureName(RefStrings.MODID + ":particle_digamma");
-		particle_lutece = new Item().setUnlocalizedName("particle_lutece").setCreativeTab(MainRegistry.controlTab)
+		particle_lutece = new ItemDrop().setUnlocalizedName("particle_lutece").setCreativeTab(MainRegistry.controlTab)
 				.setContainerItem(ModItems.particle_empty).setTextureName(RefStrings.MODID + ":particle_lutece");
 		singularity_micro = new ItemDrop().setUnlocalizedName("singularity_micro")
 				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste)

@@ -24,9 +24,9 @@ public class BobmazonOfferFactory {
 	public static List<Offer> weapons = new ArrayList();
 	public static List<Offer> tools = new ArrayList();
 	public static List<Offer> special = new ArrayList();
-	
+
 	public static void init() {
-		
+
 		materials.clear();
 		machines.clear();
 		weapons.clear();
@@ -54,13 +54,20 @@ public class BobmazonOfferFactory {
 		materials.add(new Offer(new ItemStack(ModItems.lithium), Requirement.CHEMICS, 6 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.solid_fuel), Requirement.OIL, 4 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.lignite), Requirement.STEEL, 2 * inflation));
-		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.OIL.getID()), Requirement.OIL, 4 * inflation));
-		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.DIESEL.getID()), Requirement.OIL, 16 * inflation));
-		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.PETROIL.getID()), Requirement.OIL, 12 * inflation));
-		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.GASOLINE.getID()), Requirement.OIL, 20 * inflation));
-		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.KEROSENE.getID()), Requirement.OIL, 20 * inflation));
-		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.NITAN.getID()), Requirement.OIL, 100 * inflation));
-		materials.add(new Offer(new ItemStack(ModItems.gas_full, 1, Fluids.PETROLEUM.getID()), Requirement.OIL, 8 * inflation));
+		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.OIL.getID()), Requirement.OIL,
+				4 * inflation));
+		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.DIESEL.getID()), Requirement.OIL,
+				16 * inflation));
+		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.PETROIL.getID()), Requirement.OIL,
+				12 * inflation));
+		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.GASOLINE.getID()), Requirement.OIL,
+				20 * inflation));
+		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.KEROSENE.getID()), Requirement.OIL,
+				20 * inflation));
+		materials.add(new Offer(new ItemStack(ModItems.canister_full, 1, Fluids.NITAN.getID()), Requirement.OIL,
+				100 * inflation));
+		materials.add(new Offer(new ItemStack(ModItems.gas_full, 1, Fluids.PETROLEUM.getID()), Requirement.OIL,
+				8 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.motor), Requirement.ASSEMBLY, 12 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.rtg_unit), Requirement.NUCLEAR, 25 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.circuit_aluminium), Requirement.ASSEMBLY, 4 * inflation));
@@ -71,8 +78,10 @@ public class BobmazonOfferFactory {
 		materials.add(new Offer(new ItemStack(ModItems.magnetron), Requirement.ASSEMBLY, 10 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.pellet_rtg), Requirement.NUCLEAR, 27 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.piston_selenium), Requirement.ASSEMBLY, 12 * inflation));
-		materials.add(new Offer(ItemBattery.getFullBattery(ModItems.battery_advanced), Requirement.ASSEMBLY, 15 * inflation));
-		materials.add(new Offer(ItemBattery.getFullBattery(ModItems.battery_lithium), Requirement.CHEMICS, 30 * inflation));
+		materials.add(
+				new Offer(ItemBattery.getFullBattery(ModItems.battery_advanced), Requirement.ASSEMBLY, 15 * inflation));
+		materials.add(
+				new Offer(ItemBattery.getFullBattery(ModItems.battery_lithium), Requirement.CHEMICS, 30 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.arc_electrode), Requirement.ASSEMBLY, 15 * inflation));
 		materials.add(new Offer(new ItemStack(ModItems.fuse), Requirement.ASSEMBLY, 5 * inflation));
 
@@ -131,16 +140,20 @@ public class BobmazonOfferFactory {
 		weapons.add(new Offer(new ItemStack(ModItems.ammo_5mm, 50), Requirement.OIL, 50 * inflation));
 		weapons.add(new Offer(ModItems.ammo_5mm.stackFromEnum(50, Ammo5mm.DU), Requirement.OIL, 75 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.ammo_rocket), Requirement.OIL, 5 * inflation));
-		weapons.add(new Offer(ModItems.ammo_rocket.stackFromEnum(AmmoRocket.INCENDIARY), Requirement.OIL, 8 * inflation));
+		weapons.add(
+				new Offer(ModItems.ammo_rocket.stackFromEnum(AmmoRocket.INCENDIARY), Requirement.OIL, 8 * inflation));
 		weapons.add(new Offer(ModItems.ammo_rocket.stackFromEnum(AmmoRocket.SLEEK), Requirement.OIL, 12 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.ammo_grenade), Requirement.OIL, 4 * inflation));
-		weapons.add(new Offer(ModItems.ammo_grenade.stackFromEnum(AmmoGrenade.INCENDIARY), Requirement.OIL, 6 * inflation));
+		weapons.add(
+				new Offer(ModItems.ammo_grenade.stackFromEnum(AmmoGrenade.INCENDIARY), Requirement.OIL, 6 * inflation));
 		weapons.add(new Offer(ModItems.ammo_grenade.stackFromEnum(AmmoGrenade.SLEEK), Requirement.OIL, 10 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.ammo_22lr, 32), Requirement.OIL, 24 * inflation));
 		weapons.add(new Offer(ModItems.ammo_22lr.stackFromEnum(32, Ammo22LR.AP), Requirement.OIL, 32 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.ammo_20gauge, 6), Requirement.OIL, 18 * inflation));
-		weapons.add(new Offer(ModItems.ammo_20gauge.stackFromEnum(6, Ammo20Gauge.SLUG), Requirement.OIL, 20 * inflation));
-		weapons.add(new Offer(ModItems.ammo_20gauge.stackFromEnum(6, Ammo20Gauge.FLECHETTE), Requirement.OIL, 22 * inflation));
+		weapons.add(
+				new Offer(ModItems.ammo_20gauge.stackFromEnum(6, Ammo20Gauge.SLUG), Requirement.OIL, 20 * inflation));
+		weapons.add(new Offer(ModItems.ammo_20gauge.stackFromEnum(6, Ammo20Gauge.FLECHETTE), Requirement.OIL,
+				22 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.gun_hp_ammo, 1), Requirement.ASSEMBLY, 1000 * inflation));
 
 		tools.add(new Offer(new ItemStack(ModBlocks.crate_can, 1), Requirement.STEEL, 20 * inflation));
@@ -217,60 +230,62 @@ public class BobmazonOfferFactory {
 		special.add(new Offer(new ItemStack(ModItems.mysteryshovel, 1), Requirement.HIDDEN, 16));
 		special.add(new Offer(new ItemStack(ModBlocks.ntm_dirt, 1), Requirement.HIDDEN, 16));
 		special.add(new Offer(new ItemStack(ModItems.euphemium_kit, 1), Requirement.HIDDEN, 64));
-		
-		special.add(new Offer(ItemKitCustom.create("Fusion Man", "For the nuclear physicist on the go", 0xff00ff, 0x800080,
-				new ItemStack(ModBlocks.iter),
-				new ItemStack(ModBlocks.plasma_heater),
-				new ItemStack(ModItems.fusion_shield_vaporwave),
-				ItemBattery.getFullBattery(ModItems.battery_spark),
-				new ItemStack(ModBlocks.machine_chemplant, 10),
-				new ItemStack(ModBlocks.machine_fluidtank, 8),
-				new ItemStack(ModBlocks.red_wire_coated, 64),
-				new ItemStack(ModBlocks.red_cable, 64),
-				new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.DEUTERIUM.getID()),
-				new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.TRITIUM.getID()),
-				new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.XENON.getID()),
-				new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.MERCURY.getID()),
-				new ItemStack(ModBlocks.red_pylon_large, 8),
-				new ItemStack(ModBlocks.substation, 4),
-				new ItemStack(ModBlocks.red_pylon, 16),
-				new ItemStack(ModBlocks.red_connector, 64),
-				new ItemStack(ModItems.wiring_red_copper, 1),
-				new ItemStack(ModBlocks.machine_chungus, 1),
-				new ItemStack(ModBlocks.machine_large_turbine, 3),
-				new ItemStack(ModItems.template_folder, 1),
-				new ItemStack(Items.paper, 64),
-				new ItemStack(Items.dye, 64)
-				), Requirement.HIDDEN, 64));
-		
-		special.add(new Offer(ItemKitCustom.create("Maid's Cleaning Utensils", "For the hard to reach spots", 0x00ff00, 0x008000,
-				new ItemStack(ModItems.gun_calamity),
-				ModItems.ammo_50bmg.stackFromEnum(64, Ammo50BMG.CHLOROPHYTE),
-				ModItems.ammo_50bmg.stackFromEnum(64, Ammo50BMG.CHLOROPHYTE),
-				ModItems.ammo_50bmg.stackFromEnum(64, Ammo50BMG.CHLOROPHYTE),
-				ModItems.ammo_50ae.stackFromEnum(64, Ammo50AE.STAR),
-				ModItems.ammo_50ae.stackFromEnum(64, Ammo50AE.STAR),
-				new ItemStack(ModItems.gun_supershotgun),
-				ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.DU),
-				ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.DU),
-				ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.SHRAPNEL),
-				ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.SHRAPNEL),
-				ModItems.ammo_12gauge.stackFromEnum(4, Ammo12Gauge.MARAUDER),
-				new ItemStack(ModItems.gun_sauer),
-				new ItemStack(ModItems.ammo_4gauge, 64),
-				ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.CLAW),
-				ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.KAMPF),
-				ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.FLECHETTE),
-				ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.VOID)
-				), Requirement.HIDDEN, 64));
-		
+
+		special.add(
+				new Offer(ItemKitCustom.create("Fusion Man", "For the nuclear physicist on the go", 0xff00ff, 0x800080,
+						new ItemStack(ModBlocks.iter),
+						new ItemStack(ModBlocks.plasma_heater),
+						new ItemStack(ModItems.fusion_shield_vaporwave),
+						ItemBattery.getFullBattery(ModItems.battery_spark),
+						new ItemStack(ModBlocks.machine_chemplant, 10),
+						new ItemStack(ModBlocks.machine_fluidtank, 8),
+						new ItemStack(ModBlocks.red_wire_coated, 64),
+						new ItemStack(ModBlocks.red_cable, 64),
+						new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.DEUTERIUM.getID()),
+						new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.TRITIUM.getID()),
+						new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.XENON.getID()),
+						new ItemStack(ModItems.fluid_barrel_full, 64, Fluids.MERCURY.getID()),
+						new ItemStack(ModBlocks.red_pylon_large, 8),
+						new ItemStack(ModBlocks.substation, 4),
+						new ItemStack(ModBlocks.red_pylon, 16),
+						new ItemStack(ModBlocks.red_connector, 64),
+						new ItemStack(ModItems.wiring_red_copper, 1),
+						new ItemStack(ModBlocks.machine_chungus, 1),
+						new ItemStack(ModBlocks.machine_large_turbine, 3),
+						new ItemStack(ModItems.template_folder, 1),
+						new ItemStack(Items.paper, 64),
+						new ItemStack(Items.dye, 64)), Requirement.HIDDEN, 64));
+
+		special.add(new Offer(
+				ItemKitCustom.create("Maid's Cleaning Utensils", "For the hard to reach spots", 0x00ff00, 0x008000,
+						new ItemStack(ModItems.gun_calamity),
+						ModItems.ammo_50bmg.stackFromEnum(64, Ammo50BMG.CHLOROPHYTE),
+						ModItems.ammo_50bmg.stackFromEnum(64, Ammo50BMG.CHLOROPHYTE),
+						ModItems.ammo_50bmg.stackFromEnum(64, Ammo50BMG.CHLOROPHYTE),
+						ModItems.ammo_50ae.stackFromEnum(64, Ammo50AE.STAR),
+						ModItems.ammo_50ae.stackFromEnum(64, Ammo50AE.STAR),
+						new ItemStack(ModItems.gun_supershotgun),
+						ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.DU),
+						ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.DU),
+						ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.SHRAPNEL),
+						ModItems.ammo_12gauge.stackFromEnum(64, Ammo12Gauge.SHRAPNEL),
+						ModItems.ammo_12gauge.stackFromEnum(4, Ammo12Gauge.MARAUDER),
+						new ItemStack(ModItems.gun_sauer),
+						new ItemStack(ModItems.ammo_4gauge, 64),
+						ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.CLAW),
+						ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.KAMPF),
+						ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.FLECHETTE),
+						ModItems.ammo_4gauge.stackFromEnum(64, Ammo4Gauge.VOID)),
+				Requirement.HIDDEN, 64));
+
 		special.add(new Offer(ItemKitNBT.create(
 				new ItemStack(ModItems.rod_of_discord).setStackDisplayName("Cock Joke"),
-				ModItems.canned_conserve.stackFromEnum(64, EnumFoodType.JIZZ).setStackDisplayName("Class A Horse Semen"),
+				ModItems.canned_conserve.stackFromEnum(64, EnumFoodType.JIZZ)
+						.setStackDisplayName("Class A Horse Semen"),
 				new ItemStack(ModItems.pipe_lead).setStackDisplayName("Get Nutted, Dumbass"),
-				new ItemStack(ModItems.gem_alexandrite)
-				).setStackDisplayName("The Nut Bucket"), Requirement.HIDDEN, 64));
-		
+				new ItemStack(ModItems.gem_alexandrite)).setStackDisplayName("The Nut Bucket"), Requirement.HIDDEN,
+				64));
+
 		special.add(new Offer(ItemKitNBT.create(
 				new ItemStack(ModItems.rpa_helmet),
 				new ItemStack(ModItems.rpa_plate),
@@ -283,23 +298,28 @@ public class BobmazonOfferFactory {
 				ModItems.ammo_5mm.stackFromEnum(64, Ammo5mm.STAR),
 				ModItems.ammo_5mm.stackFromEnum(64, Ammo5mm.STAR),
 				ModItems.ammo_5mm.stackFromEnum(64, Ammo5mm.STAR),
-				ModItems.ammo_5mm.stackFromEnum(64, Ammo5mm.STAR)
-				).setStackDisplayName("Frenchman's Reward"), Requirement.HIDDEN, 32));
-		
+				ModItems.ammo_5mm.stackFromEnum(64, Ammo5mm.STAR)).setStackDisplayName("Frenchman's Reward"),
+				Requirement.HIDDEN, 32));
+
 		special.add(new Offer(new ItemStack(ModItems.gun_detonator, 1), Requirement.HIDDEN, 32));
 	}
-	
-	public static List<Offer> getOffers(ItemStack stack) {
-		
-		if(stack != null) {
 
-			if(stack.getItem() == ModItems.bobmazon_materials) return materials;
-			if(stack.getItem() == ModItems.bobmazon_machines) return machines;
-			if(stack.getItem() == ModItems.bobmazon_weapons) return weapons;
-			if(stack.getItem() == ModItems.bobmazon_tools) return tools;
-			if(stack.getItem() == ModItems.bobmazon_hidden) return special;
+	public static List<Offer> getOffers(ItemStack stack) {
+
+		if (stack != null) {
+
+			if (stack.getItem() == ModItems.bobmazon_materials)
+				return materials;
+			if (stack.getItem() == ModItems.bobmazon_machines)
+				return machines;
+			if (stack.getItem() == ModItems.bobmazon_weapons)
+				return weapons;
+			if (stack.getItem() == ModItems.bobmazon_tools)
+				return tools;
+			if (stack.getItem() == ModItems.bobmazon_hidden)
+				return special;
 		}
-		
+
 		return null;
 	}
 
