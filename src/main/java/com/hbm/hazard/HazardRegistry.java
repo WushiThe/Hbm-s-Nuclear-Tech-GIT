@@ -143,6 +143,7 @@ public class HazardRegistry {
 	public static final float rod_dual = rod * 2;
 	public static final float rod_quad = rod * 4;
 	public static final float rod_rbmk = rod * 8;
+	public static final float csol = 299792458;
 
 	public static final HazardTypeBase RADIATION = new HazardTypeRadiation();
 	public static final HazardTypeBase DIGAMMA = new HazardTypeDigamma();
@@ -154,7 +155,7 @@ public class HazardRegistry {
 	public static final HazardTypeBase EXPLOSIVE = new HazardTypeExplosive();
 
 	public static void registerItems() {
-		HazardSystem.register(particle_graviton, makeData(RADIATION, 29979.2458F));
+		HazardSystem.register(particle_graviton, makeData(RADIATION, csol));
 		HazardSystem.register(particle_graviton, makeData(DIGAMMA, 0.1F));
 
 		HazardSystem.register(Items.gunpowder, makeData(EXPLOSIVE, 1F));
@@ -416,6 +417,7 @@ public class HazardRegistry {
 		registerRBMKRod(rbmk_fuel_zfb_pu241, pu239 * rod_rbmk * 0.1F, wst * rod_rbmk * 7.5F);
 		registerRBMKRod(rbmk_fuel_zfb_am_mix, pu241 * rod_rbmk * 0.1F, wst * rod_rbmk * 10F);
 		registerRBMK(rbmk_fuel_drx, bf * rod_rbmk, bf * rod_rbmk * 100F, true, true, 0, 1F / 3F);
+		registerRBMKRod(rbmk_fuel_gravity, au198 * rod_rbmk, bf * rod_rbmk * 0.5F, true);
 
 		registerRBMKPellet(rbmk_pellet_ueu, u * billet, wst * billet * 20F);
 		registerRBMKPellet(rbmk_pellet_meu, uf * billet, wst * billet * 21.5F);
@@ -448,6 +450,7 @@ public class HazardRegistry {
 		registerRBMKPellet(rbmk_pellet_zfb_pu241, pu239 * billet * 0.1F, wst * billet * 7.5F);
 		registerRBMKPellet(rbmk_pellet_zfb_am_mix, pu241 * billet * 0.1F, wst * billet * 10F);
 		registerRBMKPellet(rbmk_pellet_drx, bf * billet, bf * billet * 100F, true, 0F, 1F / 24F);
+		registerRBMKPellet(rbmk_pellet_gravity, au198 * billet, bf * billet * 0.5F, true);
 
 		HazardSystem.register(DictFrame.fromOne(ModItems.watz_pellet, EnumWatzType.SCHRABIDIUM),
 				makeData(RADIATION, sa326 * ingot * 4));
