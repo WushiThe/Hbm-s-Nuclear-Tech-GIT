@@ -54,30 +54,35 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		if(this == ModBlocks.machine_battery) {
+		if (this == ModBlocks.machine_battery) {
 			this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":battery_front_alt");
 			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":battery_top");
 			this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":battery_side_alt");
 		}
-		if(this == ModBlocks.machine_battery_potato) {
+		if (this == ModBlocks.machine_battery_potato) {
 			this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":battery_potato_front");
 			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":battery_potato_top");
 			this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":battery_potato_side");
 		}
-		if(this == ModBlocks.machine_lithium_battery) {
+		if (this == ModBlocks.machine_lithium_battery) {
 			this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":battery_lithium_front");
 			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":battery_lithium_top");
 			this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":battery_lithium_side");
 		}
-		if(this == ModBlocks.machine_schrabidium_battery) {
+		if (this == ModBlocks.machine_schrabidium_battery) {
 			this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":battery_schrabidium_front");
 			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":battery_schrabidium_top");
 			this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":battery_schrabidium_side");
 		}
-		if(this == ModBlocks.machine_dineutronium_battery) {
+		if (this == ModBlocks.machine_dineutronium_battery) {
 			this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":battery_dineutronium_front");
 			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":battery_dineutronium_top");
 			this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":battery_dineutronium_side");
+		}
+		if (this == ModBlocks.machine_electronium_battery) {
+			this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":battery_electronium_front");
+			this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":battery_electronium_top");
+			this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":battery_electronium_side");
 		}
 	}
 
@@ -85,7 +90,7 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 
-		if(side == 0 || side == 1)
+		if (side == 0 || side == 1)
 			return iconTop;
 
 		return metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : this.blockIcon);
@@ -103,7 +108,7 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	}
 
 	private void setDefaultDirection(World world, int x, int y, int z) {
-		if(!world.isRemote) {
+		if (!world.isRemote) {
 			Block block1 = world.getBlock(x, y, z - 1);
 			Block block2 = world.getBlock(x, y, z + 1);
 			Block block3 = world.getBlock(x - 1, y, z);
@@ -111,16 +116,16 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 
 			byte b0 = 3;
 
-			if(block1.func_149730_j() && !block2.func_149730_j()) {
+			if (block1.func_149730_j() && !block2.func_149730_j()) {
 				b0 = 3;
 			}
-			if(block2.func_149730_j() && !block1.func_149730_j()) {
+			if (block2.func_149730_j() && !block1.func_149730_j()) {
 				b0 = 2;
 			}
-			if(block3.func_149730_j() && !block4.func_149730_j()) {
+			if (block3.func_149730_j() && !block4.func_149730_j()) {
 				b0 = 5;
 			}
-			if(block4.func_149730_j() && !block3.func_149730_j()) {
+			if (block4.func_149730_j() && !block3.func_149730_j()) {
 				b0 = 4;
 			}
 
@@ -132,23 +137,23 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
 		int i = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
-		if(i == 0) {
+		if (i == 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		}
-		if(i == 1) {
+		if (i == 1) {
 			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
 		}
-		if(i == 2) {
+		if (i == 2) {
 			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		}
-		if(i == 3) {
+		if (i == 3) {
 			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		}
 
-		if(itemStack.hasDisplayName()) {
+		if (itemStack.hasDisplayName()) {
 			((TileEntityMachineBattery) world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
 		}
-		
+
 		IPersistentNBT.restoreData(world, x, y, z, itemStack);
 	}
 
@@ -158,12 +163,13 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if(world.isRemote) {
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX,
+			float hitY, float hitZ) {
+		if (world.isRemote) {
 			return true;
-		} else if(!player.isSneaking()) {
+		} else if (!player.isSneaking()) {
 			TileEntityMachineBattery entity = (TileEntityMachineBattery) world.getTileEntity(x, y, z);
-			if(entity != null) {
+			if (entity != null) {
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
 			return true;
@@ -173,33 +179,37 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	}
 
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
-		if(!keepInventory) {
+	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,
+			int p_149749_6_) {
+		if (!keepInventory) {
 			TileEntity tile = p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
 
-			if(tile instanceof TileEntityMachineBattery) {
+			if (tile instanceof TileEntityMachineBattery) {
 				TileEntityMachineBattery battery = (TileEntityMachineBattery) tile;
-				
-				for(int i1 = 0; i1 < battery.getSizeInventory(); ++i1) {
+
+				for (int i1 = 0; i1 < battery.getSizeInventory(); ++i1) {
 					ItemStack itemstack = battery.getStackInSlot(i1);
 
-					if(itemstack != null) {
+					if (itemstack != null) {
 						float f = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 						float f1 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 						float f2 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 
-						while(itemstack.stackSize > 0) {
+						while (itemstack.stackSize > 0) {
 							int j1 = this.field_149933_a.nextInt(21) + 10;
 
-							if(j1 > itemstack.stackSize) {
+							if (j1 > itemstack.stackSize) {
 								j1 = itemstack.stackSize;
 							}
 
 							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1,
+									p_149749_4_ + f2,
+									new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
-							if(itemstack.hasTagCompound()) {
-								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+							if (itemstack.hasTagCompound()) {
+								entityitem.getEntityItem()
+										.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
 							}
 
 							float f3 = 0.05F;
@@ -220,23 +230,24 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		
+
 		TileEntity te = world.getTileEntity(x, y, z);
-		
-		if(!(te instanceof TileEntityMachineBattery))
+
+		if (!(te instanceof TileEntityMachineBattery))
 			return;
-		
+
 		TileEntityMachineBattery battery = (TileEntityMachineBattery) te;
-		
+
 		List<String> text = new ArrayList();
-		text.add(BobMathUtil.getShortNumber(battery.getPower()) + " / " + BobMathUtil.getShortNumber(battery.getMaxPower()) + "HE");
-		
+		text.add(BobMathUtil.getShortNumber(battery.getPower()) + " / "
+				+ BobMathUtil.getShortNumber(battery.getMaxPower()) + "HE");
+
 		double percent = (double) battery.getPower() / (double) battery.getMaxPower();
 		int charge = (int) Math.floor(percent * 10_000D);
-		int color = ((int) (0xFF - 0xFF * percent)) << 16 | ((int)(0xFF * percent) << 8);
-		
+		int color = ((int) (0xFF - 0xFF * percent)) << 16 | ((int) (0xFF * percent) << 8);
+
 		text.add("&[" + color + "&]" + (charge / 100D) + "%");
-		
+
 		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getUnlocalizedName() + ".name"), 0xffff00, 0x404000, text);
 	}
 
@@ -247,16 +258,16 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 
 	@Override
 	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
-		
+
 		TileEntity te = world.getTileEntity(x, y, z);
-		
-		if(!(te instanceof TileEntityMachineBattery))
+
+		if (!(te instanceof TileEntityMachineBattery))
 			return 0;
-		
+
 		TileEntityMachineBattery battery = (TileEntityMachineBattery) te;
 		return battery.getComparatorPower();
 	}
-	
+
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		return IPersistentNBT.getDrops(world, x, y, z, this);
@@ -264,14 +275,14 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
-		
-		if(!player.capabilities.isCreativeMode) {
+
+		if (!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
 			this.dropBlockAsItem(world, x, y, z, meta, 0);
 			harvesters.set(null);
 		}
 	}
-	
+
 	@Override
 	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
 		player.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);
@@ -279,7 +290,9 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, NBTTagCompound persistentTag, EntityPlayer player, List list, boolean ext) {
-		list.add(EnumChatFormatting.YELLOW + "" + BobMathUtil.getShortNumber(persistentTag.getLong("power")) + "/" + BobMathUtil.getShortNumber(this.maxPower) + "HE");
+	public void addInformation(ItemStack stack, NBTTagCompound persistentTag, EntityPlayer player, List list,
+			boolean ext) {
+		list.add(EnumChatFormatting.YELLOW + "" + BobMathUtil.getShortNumber(persistentTag.getLong("power")) + "/"
+				+ BobMathUtil.getShortNumber(this.maxPower) + "HE");
 	}
 }

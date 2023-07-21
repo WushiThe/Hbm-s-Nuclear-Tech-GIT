@@ -687,6 +687,19 @@ public class AssemblerRecipes {
 						new ComparableStack(ModItems.battery_spark_cell_1000, 1), new OreDictStack(CMB.ingot(), 32),
 						new ComparableStack(ModItems.coil_magnetized_tungsten, 8), },
 				1600);
+		makeRecipe(new ComparableStack(ModBlocks.block_electronium, 1),
+				new AStack[] { new ComparableStack(ModBlocks.machine_dineutronium_battery, 8),
+						new ComparableStack(ModBlocks.hadron_coil_magtung, 4),
+						new ComparableStack(ModItems.powder_magic, 4),
+						new ComparableStack(ModItems.ingot_electronium, 8), new OreDictStack(CMB.ingot(), 6), },
+				600);
+		makeRecipe(new ComparableStack(ModBlocks.machine_electronium_battery, 1),
+				new AStack[] { new ComparableStack(ModBlocks.block_electronium, 1),
+						new ComparableStack(ModBlocks.hadron_coil_magtung, 16),
+						new ComparableStack(ModItems.powder_magic, 8),
+						new ComparableStack(ModItems.ingot_electronium, 8), new OreDictStack(CMB.ingot(), 8),
+						new ComparableStack(ModItems.coil_gold, 32), new ComparableStack(ModItems.ingot_meteorite, 8) },
+				1200);
 		makeRecipe(new ComparableStack(ModBlocks.machine_shredder, 1),
 				new AStack[] { new OreDictStack(STEEL.ingot(), 2), new OreDictStack(STEEL.plate528(), 4),
 						new ComparableStack(ModItems.motor, 2), new ComparableStack(ModItems.wire_red_copper, 2),
