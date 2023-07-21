@@ -1142,6 +1142,7 @@ public class ModItems {
 	public static ItemRBMKRod rbmk_fuel_zfb_am_mix;
 	public static ItemRBMKRod rbmk_fuel_drx;
 	public static ItemRBMKRod rbmk_fuel_test;
+	public static ItemRBMKRod rbmk_fuel_gravity;
 	public static ItemRBMKPellet rbmk_pellet_ueu;
 	public static ItemRBMKPellet rbmk_pellet_meu;
 	public static ItemRBMKPellet rbmk_pellet_heu233;
@@ -1173,6 +1174,7 @@ public class ModItems {
 	public static ItemRBMKPellet rbmk_pellet_zfb_pu241;
 	public static ItemRBMKPellet rbmk_pellet_zfb_am_mix;
 	public static ItemRBMKPellet rbmk_pellet_drx;
+	public static ItemRBMKPellet rbmk_pellet_gravity;
 
 	public static Item watz_pellet;
 	public static Item watz_pellet_depleted;
@@ -5047,6 +5049,15 @@ public class ModItems {
 				.setHeat(0.1D)
 				.setMeltingPoint(100000)
 				.setUnlocalizedName("rbmk_fuel_drx").setTextureName(RefStrings.MODID + ":rbmk_fuel_drx");
+		rbmk_fuel_gravity = (ItemRBMKRod) new ItemRBMKRod(rbmk_pellet_gravity)
+				.setYield(100000000D)
+				.setStats(70, 20)
+				.setFunction(EnumBurnFunc.ARCH)
+				.setDepletionFunction(EnumDepleteFunc.LINEAR)
+				.setXenon(0.0D, 50D)
+				.setMeltingPoint(8196)
+				.setUnlocalizedName("rbmk_fuel_gravity")
+				.setTextureName(RefStrings.MODID + ":rbmk_fuel_gravity");
 		rbmk_fuel_test = (ItemRBMKRod) new ItemRBMKRod("THE VOICES")
 				.setYield(1000000D)
 				.setStats(100)
