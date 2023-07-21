@@ -155,7 +155,7 @@ public class HazardRegistry {
 	public static final HazardTypeBase EXPLOSIVE = new HazardTypeExplosive();
 
 	public static void registerItems() {
-		HazardSystem.register(particle_graviton, makeData(RADIATION, csol));
+		HazardSystem.register(particle_graviton, makeData(RADIATION, 299792458F));
 		HazardSystem.register(particle_graviton, makeData(DIGAMMA, 0.1F));
 
 		HazardSystem.register(Items.gunpowder, makeData(EXPLOSIVE, 1F));

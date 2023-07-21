@@ -163,6 +163,15 @@ public class ItemDrop extends Item {
 						entityItem.worldObj.spawnEntityInWorld(bl);
 					}
 				}
+				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_naked && WeaponConfig.dropSing) {
+					if (!entityItem.worldObj.isRemote) {
+						EntityBlackHole bl = new EntityBlackHole(entityItem.worldObj, 4.5F);
+						bl.posX = entityItem.posX;
+						bl.posY = entityItem.posY;
+						bl.posZ = entityItem.posZ;
+						entityItem.worldObj.spawnEntityInWorld(bl);
+					}
+				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_spark && WeaponConfig.dropSing) {
 					if (!entityItem.worldObj.isRemote) {
 						EntityRagingVortex bl = new EntityRagingVortex(entityItem.worldObj, 3.5F);
@@ -193,6 +202,11 @@ public class ItemDrop extends Item {
 		if (this == ModItems.cell_antimatter) {
 			list.add("Warning: Exposure to matter will");
 			list.add("lead to violent annihilation!");
+		}
+		if (this == ModItems.particle_graviton) {
+			list.add("Exposure to matter will");
+			list.add("cause immediate collapse of");
+			list.add("the fabric of space.");
 		}
 		if (this == ModItems.pellet_antimatter) {
 			list.add("Very heavy antimatter cluster.");

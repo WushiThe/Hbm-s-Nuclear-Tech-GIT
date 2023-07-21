@@ -908,6 +908,7 @@ public class ModItems {
 	public static Item singularity;
 	public static Item singularity_counter_resonant;
 	public static Item singularity_super_heated;
+	public static Item singularity_naked;
 	public static Item black_hole;
 	public static Item singularity_spark;
 	public static Item crystal_xen;
@@ -3989,6 +3990,9 @@ public class ModItems {
 		black_hole = new ItemDrop().setUnlocalizedName("black_hole").setMaxStackSize(1)
 				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste)
 				.setTextureName(RefStrings.MODID + ":singularity_4");
+		singularity_naked = new ItemDrop().setUnlocalizedName("singularity_naked").setMaxStackSize(1)
+				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste)
+				.setTextureName(RefStrings.MODID + ":singularity_naked");
 		singularity_spark = new ItemDrop().setUnlocalizedName("singularity_spark").setMaxStackSize(1)
 				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste)
 				.setTextureName(RefStrings.MODID + ":singularity_spark_alt");
@@ -8843,6 +8847,7 @@ public class ModItems {
 		GameRegistry.registerItem(singularity_super_heated, singularity_super_heated.getUnlocalizedName());
 		GameRegistry.registerItem(black_hole, black_hole.getUnlocalizedName());
 		GameRegistry.registerItem(singularity_spark, singularity_spark.getUnlocalizedName());
+		GameRegistry.registerItem(singularity_naked, singularity_naked.getUnlocalizedName());
 		GameRegistry.registerItem(crystal_xen, crystal_xen.getUnlocalizedName());
 		GameRegistry.registerItem(pellet_antimatter, pellet_antimatter.getUnlocalizedName());
 
@@ -9229,6 +9234,7 @@ public class ModItems {
 		GameRegistry.registerItem(rbmk_fuel_zfb_pu241, rbmk_fuel_zfb_pu241.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_zfb_am_mix, rbmk_fuel_zfb_am_mix.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_drx, rbmk_fuel_drx.getUnlocalizedName());
+		GameRegistry.registerItem(rbmk_fuel_gravity, rbmk_fuel_gravity.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_test, rbmk_fuel_test.getUnlocalizedName());
 
 		GameRegistry.registerItem(rbmk_pellet_ueu, rbmk_pellet_ueu.getUnlocalizedName());
