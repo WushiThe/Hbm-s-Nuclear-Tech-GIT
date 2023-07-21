@@ -494,8 +494,8 @@ public class SILEXRecipes {
 
 			// GRAVITY //
 			recipes.put(new ComparableStack(ModItems.rbmk_pellet_gravity, 1, i), new SILEXRecipe(600, 100, 5)
-					.addOut(new WeightedRandomObject(new ItemStack(ModItems.powder_euphemium), 70 - 17.5 * i))
-					.addOut(new WeightedRandomObject(new ItemStack(ModItems.powder_dineutronium, 30 + 17.5 * i))));
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.powder_euphemium), 80 - 20 * i))
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.powder_dineutronium, 20 + 20 * i))));
 
 			// FLASHLEAD //
 			recipes.put(new ComparableStack(ModItems.rbmk_pellet_flashlead, 1, i), new SILEXRecipe(600, 100, 2)
