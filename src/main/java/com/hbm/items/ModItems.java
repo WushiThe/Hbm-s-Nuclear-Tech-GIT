@@ -4802,6 +4802,10 @@ public class ModItems {
 		rbmk_pellet_drx = (ItemRBMKPellet) new ItemRBMKPellet(
 				EnumChatFormatting.OBFUSCATED + "can't you hear, can't you hear the thunder?")
 				.setUnlocalizedName("rbmk_pellet_drx").setTextureName(RefStrings.MODID + ":rbmk_pellet_drx");
+		rbmk_pellet_gravity = (ItemRBMKPellet) new ItemRBMKPellet(
+				"Pure Gravitational Potential Energy held together by a Naked Singularity")
+				.disableXenon().setUnlocalizedName("rbmk_pellet_gravity")
+				.setTextureName(RefStrings.MODID + ":rbmk_pellet_gravity");
 
 		rbmk_fuel_empty = new Item().setUnlocalizedName("rbmk_fuel_empty").setCreativeTab(MainRegistry.controlTab)
 				.setTextureName(RefStrings.MODID + ":rbmk_fuel_empty");
@@ -9258,6 +9262,7 @@ public class ModItems {
 		GameRegistry.registerItem(rbmk_pellet_zfb_pu241, rbmk_pellet_zfb_pu241.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_pellet_zfb_am_mix, rbmk_pellet_zfb_am_mix.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_pellet_drx, rbmk_pellet_drx.getUnlocalizedName());
+		GameRegistry.registerItem(rbmk_pellet_gravity, rbmk_pellet_gravity.getUnlocalizedName());
 
 		GameRegistry.registerItem(watz_pellet, watz_pellet.getUnlocalizedName());
 		GameRegistry.registerItem(watz_pellet_depleted, watz_pellet_depleted.getUnlocalizedName());
