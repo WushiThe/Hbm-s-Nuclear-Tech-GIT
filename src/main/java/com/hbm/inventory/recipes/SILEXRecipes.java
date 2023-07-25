@@ -553,6 +553,15 @@ public class SILEXRecipes {
 					.addOut(new WeightedRandomObject(new ItemStack(ModItems.undefined), 1))
 					.addOut(new WeightedRandomObject(new ItemStack(ModItems.undefined), 1)));
 
+			// LUTECE //
+			recipes.put(new ComparableStack(ModItems.rbmk_pellet_lutece, 1, i), new SILEXRecipe(600, 100, 5)
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.singularity), 1))
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.singularity_naked), 1))
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.singularity_spark), 1))
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.singularity_super_heated), 1))
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.black_hole), 1))
+					.addOut(new WeightedRandomObject(new ItemStack(ModItems.singularity_counter_resonant), 1)));
+
 			// ZFB BI //
 			recipes.put(new ComparableStack(ModItems.rbmk_pellet_zfb_bismuth, 1, i), new SILEXRecipe(600, 100, 2)
 					.addOut(new WeightedRandomObject(new ItemStack(ModItems.nugget_uranium), 50 - i * 10))

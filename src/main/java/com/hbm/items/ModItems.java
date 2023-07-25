@@ -902,6 +902,8 @@ public class ModItems {
 	public static Item particle_digamma;
 	public static Item particle_lutece;
 	public static Item particle_graviton;
+	public static Item particle_electron;
+	public static Item oscillating_energy;
 
 	public static Item pellet_antimatter;
 	public static Item singularity_micro;
@@ -912,6 +914,7 @@ public class ModItems {
 	public static Item black_hole;
 	public static Item singularity_spark;
 	public static Item crystal_xen;
+	public static Item crystal_xen_lattice;
 	public static Item inf_water;
 	public static Item inf_water_mk2;
 
@@ -1144,6 +1147,7 @@ public class ModItems {
 	public static ItemRBMKRod rbmk_fuel_drx;
 	public static ItemRBMKRod rbmk_fuel_test;
 	public static ItemRBMKRod rbmk_fuel_gravity;
+	public static ItemRBMKRod rbmk_fuel_lutece;
 	public static ItemRBMKPellet rbmk_pellet_ueu;
 	public static ItemRBMKPellet rbmk_pellet_meu;
 	public static ItemRBMKPellet rbmk_pellet_heu233;
@@ -1176,6 +1180,7 @@ public class ModItems {
 	public static ItemRBMKPellet rbmk_pellet_zfb_am_mix;
 	public static ItemRBMKPellet rbmk_pellet_drx;
 	public static ItemRBMKPellet rbmk_pellet_gravity;
+	public static ItemRBMKPellet rbmk_pellet_lutece;
 
 	public static Item watz_pellet;
 	public static Item watz_pellet_depleted;
@@ -3977,6 +3982,12 @@ public class ModItems {
 		particle_graviton = new ItemDrop().setUnlocalizedName("particle_graviton")
 				.setCreativeTab(MainRegistry.controlTab)
 				.setContainerItem(ModItems.particle_empty).setTextureName(RefStrings.MODID + ":particle_graviton");
+		particle_electron = new Item().setUnlocalizedName("particle_electron")
+				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.particle_empty)
+				.setTextureName(RefStrings.MODID + ":particle_electron");
+		oscillating_energy = new Item().setUnlocalizedName("oscillating_energy")
+				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.particle_empty)
+				.setTextureName(RefStrings.MODID + ":oscillating_energy");
 
 		singularity = new ItemDrop().setUnlocalizedName("singularity").setMaxStackSize(1)
 				.setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste)
@@ -4001,6 +4012,8 @@ public class ModItems {
 				.setTextureName(RefStrings.MODID + ":pellet_antimatter");
 		crystal_xen = new ItemDrop().setUnlocalizedName("crystal_xen").setMaxStackSize(1)
 				.setCreativeTab(MainRegistry.controlTab).setTextureName(RefStrings.MODID + ":crystal_xen");
+		crystal_xen_lattice = new Item().setUnlocalizedName("crystal_xen_lattice").setMaxStackSize(1)
+				.setCreativeTab(MainRegistry.controlTab).setTextureName(RefStrings.MODID + ":crystal_xen_lattice");
 		inf_water = new ItemInfiniteFluid(Fluids.WATER, 50).setUnlocalizedName("inf_water").setMaxStackSize(1)
 				.setCreativeTab(MainRegistry.controlTab).setTextureName(RefStrings.MODID + ":inf_water");
 		inf_water_mk2 = new ItemInfiniteFluid(Fluids.WATER, 500).setUnlocalizedName("inf_water_mk2").setMaxStackSize(1)
@@ -4810,6 +4823,10 @@ public class ModItems {
 				"Pure Gravitational Potential Energy held together by a Naked Singularity")
 				.disableXenon().setUnlocalizedName("rbmk_pellet_gravity")
 				.setTextureName(RefStrings.MODID + ":rbmk_pellet_gravity");
+		rbmk_pellet_lutece = (ItemRBMKPellet) new ItemRBMKPellet(
+				"Infinite Potential Energy unleashed by mere excitations in the wave function. Collapsing this wave function could cause the collapse of the multiverse.")
+				.disableXenon().setUnlocalizedName("rbmk_pellet_lutece")
+				.setTextureName(RefStrings.MODID + ":rbmk_pellet_lutece");
 
 		rbmk_fuel_empty = new Item().setUnlocalizedName("rbmk_fuel_empty").setCreativeTab(MainRegistry.controlTab)
 				.setTextureName(RefStrings.MODID + ":rbmk_fuel_empty");
@@ -5066,6 +5083,15 @@ public class ModItems {
 				.setMeltingPoint(8196)
 				.setUnlocalizedName("rbmk_fuel_gravity")
 				.setTextureName(RefStrings.MODID + ":rbmk_fuel_gravity");
+		rbmk_fuel_lutece = (ItemRBMKRod) new ItemRBMKRod(rbmk_pellet_lutece)
+				.setYield(10000000000D)
+				.setStats(1000, 350)
+				.setFunction(EnumBurnFunc.LINEAR)
+				.setXenon(0.0D, 500D)
+				.setHeat(3D)
+				.setMeltingPoint(1416784)
+				.setUnlocalizedName("rbmk_fuel_lutece")
+				.setTextureName(RefStrings.MODID + ":rbmk_fuel_lutece");
 		rbmk_fuel_test = (ItemRBMKRod) new ItemRBMKRod("THE VOICES")
 				.setYield(1000000D)
 				.setStats(100)
@@ -8839,6 +8865,8 @@ public class ModItems {
 		GameRegistry.registerItem(particle_digamma, particle_digamma.getUnlocalizedName());
 		GameRegistry.registerItem(particle_lutece, particle_lutece.getUnlocalizedName());
 		GameRegistry.registerItem(particle_graviton, particle_graviton.getUnlocalizedName());
+		GameRegistry.registerItem(particle_electron, particle_electron.getUnlocalizedName());
+		GameRegistry.registerItem(oscillating_energy, oscillating_energy.getUnlocalizedName());
 
 		// Singularities, black holes and other cosmic horrors
 		GameRegistry.registerItem(singularity_micro, singularity_micro.getUnlocalizedName());
@@ -8849,6 +8877,7 @@ public class ModItems {
 		GameRegistry.registerItem(singularity_spark, singularity_spark.getUnlocalizedName());
 		GameRegistry.registerItem(singularity_naked, singularity_naked.getUnlocalizedName());
 		GameRegistry.registerItem(crystal_xen, crystal_xen.getUnlocalizedName());
+		GameRegistry.registerItem(crystal_xen_lattice, crystal_xen_lattice.getUnlocalizedName());
 		GameRegistry.registerItem(pellet_antimatter, pellet_antimatter.getUnlocalizedName());
 
 		// Infinite Tanks
@@ -9235,6 +9264,7 @@ public class ModItems {
 		GameRegistry.registerItem(rbmk_fuel_zfb_am_mix, rbmk_fuel_zfb_am_mix.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_drx, rbmk_fuel_drx.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_gravity, rbmk_fuel_gravity.getUnlocalizedName());
+		GameRegistry.registerItem(rbmk_fuel_lutece, rbmk_fuel_lutece.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_test, rbmk_fuel_test.getUnlocalizedName());
 
 		GameRegistry.registerItem(rbmk_pellet_ueu, rbmk_pellet_ueu.getUnlocalizedName());
@@ -9269,6 +9299,7 @@ public class ModItems {
 		GameRegistry.registerItem(rbmk_pellet_zfb_am_mix, rbmk_pellet_zfb_am_mix.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_pellet_drx, rbmk_pellet_drx.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_pellet_gravity, rbmk_pellet_gravity.getUnlocalizedName());
+		GameRegistry.registerItem(rbmk_pellet_lutece, rbmk_pellet_lutece.getUnlocalizedName());
 
 		GameRegistry.registerItem(watz_pellet, watz_pellet.getUnlocalizedName());
 		GameRegistry.registerItem(watz_pellet_depleted, watz_pellet_depleted.getUnlocalizedName());

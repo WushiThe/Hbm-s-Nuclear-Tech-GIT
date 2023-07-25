@@ -190,6 +190,18 @@ public class ItemDrop extends Item {
 
 					}
 				}
+				if (stack.getItem() != null && stack.getItem() == ModItems.crystal_xen_lattice
+						&& WeaponConfig.dropCrys) {
+					if (!entityItem.worldObj.isRemote) {
+						ExplosionChaos.floater(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
+								(int) entityItem.posZ, 45, 75);
+						ExplosionChaos.move(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
+								(int) entityItem.posZ, 45, 0, 75, 0);
+						new ExplosionVNT(entityItem.worldObj, entityItem.posX, entityItem.posY, entityItem.posZ, 40F)
+								.makeAmat().explode();
+
+					}
+				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.particle_lutece && WeaponConfig.dropCrys) {
 					if (!entityItem.worldObj.isRemote) {
 						ExplosionChaos.floater(entityItem.worldObj, (int) entityItem.posX, (int) entityItem.posY,
@@ -216,6 +228,11 @@ public class ItemDrop extends Item {
 			list.add("Exposure to matter will");
 			list.add("cause immediate collapse of");
 			list.add("the fabric of space.");
+		}
+		if (this == ModItems.crystal_xen_lattice) {
+			list.add("Limits of what physics allows...");
+			list.add("Stop before it is too late.");
+			list.add("Dropping this will lead to violent internal wave function collapse.");
 		}
 		if (this == ModItems.pellet_antimatter) {
 			list.add("Very heavy antimatter cluster.");

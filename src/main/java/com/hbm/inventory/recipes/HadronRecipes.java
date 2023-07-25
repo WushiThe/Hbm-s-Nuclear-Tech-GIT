@@ -114,6 +114,27 @@ public class HadronRecipes extends SerializableRecipe {
 				new ItemStack(ModItems.powder_euphemium),
 				false));
 		recipes.add(new HadronRecipe(
+				new ItemStack(ModItems.entanglement_kit),
+				new ItemStack(ModItems.crystal_xen),
+				750000,
+				new ItemStack(ModItems.crystal_xen_lattice),
+				new ItemStack(ModItems.dust),
+				false));
+		recipes.add(new HadronRecipe(
+				new ItemStack(ModItems.singularity_super_heated),
+				new ItemStack(ModItems.ingot_osmiridium),
+				1500000,
+				new ItemStack(ModItems.oscillating_energy),
+				new ItemStack(ModItems.dust),
+				false));
+		recipes.add(new HadronRecipe(
+				new ItemStack(ModItems.crystal_xen_lattice),
+				new ItemStack(ModItems.oscillating_energy),
+				191616,
+				new ItemStack(ModItems.particle_lutece),
+				new ItemStack(ModItems.particle_lutece),
+				false));
+		recipes.add(new HadronRecipe(
 				new ItemStack(Items.chicken),
 				new ItemStack(Items.chicken),
 				100,
