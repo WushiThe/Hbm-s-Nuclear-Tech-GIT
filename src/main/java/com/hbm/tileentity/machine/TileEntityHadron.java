@@ -14,6 +14,7 @@ import com.hbm.inventory.recipes.HadronRecipes;
 import com.hbm.items.ModItems;
 import com.hbm.lib.Library;
 import com.hbm.main.MainRegistry;
+import com.hbm.sound.AudioWrapper;
 import com.hbm.packet.AuxParticlePacketNT;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.tileentity.IGUIProvider;
@@ -33,6 +34,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -40,11 +42,12 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 	
 	public long power;
 	public static final long maxPower = 10000000;
+	private int audioDuration = 0;
 	
 	public boolean isOn = false;
 	public boolean analysisOnly = false;
 	public boolean hopperMode = false;
-	
+	private AudioWrapper audio;
 	private int delay;
 	public EnumHadronState state = EnumHadronState.IDLE;
 	private static final int delaySuccess = 20;
@@ -101,6 +104,32 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 					this.decrStackSize(1, 1);
 					power -= maxPower * 0.75;
 					this.state = EnumHadronState.PROGRESS;
+
+					if (this.state == EnumHadronState.PROGRESS) {
+						audioDuration += 2;
+					} else {
+						audioDuration -= 3;
+					}
+					audioDuration = MathHelper.clamp_int(audioDuration, 0, 60);
+
+					if(audioDuration > 10) {
+
+						if(audio == null) {
+							audio = createAudioLoop();
+							audio.startSound();
+						} else if(!audio.isPlaying()) {
+							audio = rebootAudio(audio);
+						}
+
+						audio.updatePitch((audioDuration - 10) / 100F + 0.5F);
+
+					} else {
+
+						if (audio != null) {
+							audio.stopSound();
+							audio = null;
+						}
+					}
 				}
 			}
 			
@@ -201,6 +230,30 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 			this.analysisOnly = !this.analysisOnly;
 		if(meta == 2)
 			this.hopperMode = !this.hopperMode;
+	}
+	@Override
+	public AudioWrapper createAudioLoop() {
+		return MainRegistry.proxy.getLoopedSound("hbm:block.centrifugeOperate", xCoord, yCoord, zCoord, 1.0F, 10F, 1.0F);
+	}
+
+	@Override
+	public void onChunkUnload() {
+
+		if(audio != null) {
+			audio.stopSound();
+			audio = null;
+		}
+	}
+
+	@Override
+	public void invalidate() {
+
+		super.invalidate();
+
+		if (audio != null) {
+			audio.stopSound();
+			audio = null;
+		}
 	}
 	
 	private void drawPower() {
