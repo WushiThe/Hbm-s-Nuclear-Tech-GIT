@@ -112,7 +112,7 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 					}
 					audioDuration = MathHelper.clamp_int(audioDuration, 0, 60);
 
-					if(audioDuration > 10) {
+					if(audioDuration > 4) {
 
 						if(audio == null) {
 							audio = createAudioLoop();
@@ -121,13 +121,17 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 							audio = rebootAudio(audio);
 						}
 
-						audio.updatePitch((audioDuration - 10) / 100F + 0.5F);
+						audio.updatePitch((audioDuration - 5) / 100F + 0.5F);
 
 					} else {
 
 						if (audio != null) {
 							audio.stopSound();
 							audio = null;
+							if (this.state != EnumHadronState.PROGRESS) {
+								audio.stopSound();
+								audio = null;
+							}
 						}
 					}
 				}
@@ -233,7 +237,7 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 	}
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.centrifugeOperate", xCoord, yCoord, zCoord, 1.0F, 10F, 1.0F);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.hadronOperate", xCoord, yCoord, zCoord, 2.0F, 25F, 1.0F);
 	}
 
 	@Override
