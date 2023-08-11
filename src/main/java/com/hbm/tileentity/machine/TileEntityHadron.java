@@ -39,11 +39,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUser, IGUIProvider {
-	
+
 	public long power;
 	public static final long maxPower = 10000000;
 	private int audioDuration = 0;
-	
+	private boolean isProgressing = false;
+
 	public boolean isOn = false;
 	public boolean analysisOnly = false;
 	public boolean hopperMode = false;
@@ -53,14 +54,14 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 	private static final int delaySuccess = 20;
 	private static final int delayNoResult = 60;
 	private static final int delayError = 100;
-	
+
 	public boolean stat_success = false;
 	public EnumHadronState stat_state = EnumHadronState.IDLE;
 	public int stat_charge = 0;
 	public int stat_x = 0;
 	public int stat_y = 0;
 	public int stat_z = 0;
-	
+
 	public TileEntityHadron() {
 		super(5);
 	}
@@ -69,9 +70,9 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 	public String getName() {
 		return "container.hadron";
 	}
-	
+
 	private static final int[] access = new int[] {0, 1, 2, 3};
-	
+
 	@Override
 	public int[] getAccessibleSlotsFromSide(int side) {
         return access;
@@ -89,76 +90,65 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 
 	@Override
 	public void updateEntity() {
-		
+
 		if(!worldObj.isRemote) {
-			
+
 			power = Library.chargeTEFromItems(slots, 4, power, maxPower);
 			drawPower();
-			
+
 			if(delay <= 0 && this.isOn && particles.size() < maxParticles && slots[0] != null && slots[1] != null && power >= maxPower * 0.75) {
-				
-				if(!hopperMode || (slots[0].stackSize > 1 && slots[1].stackSize > 1)) {
+
+				if (!hopperMode || (slots[0].stackSize > 1 && slots[1].stackSize > 1)) {
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 					particles.add(new Particle(slots[0], slots[1], dir, xCoord, yCoord, zCoord));
 					this.decrStackSize(0, 1);
 					this.decrStackSize(1, 1);
 					power -= maxPower * 0.75;
 					this.state = EnumHadronState.PROGRESS;
-
-					if (this.state == EnumHadronState.PROGRESS) {
-						audioDuration += 2;
+					isProgressing = true;
 					} else {
-						audioDuration -= 3;
-					}
-					audioDuration = MathHelper.clamp_int(audioDuration, 0, 60);
-
-					if(audioDuration > 4) {
-
-						if(audio == null) {
-							audio = createAudioLoop();
-							audio.startSound();
-						} else if(!audio.isPlaying()) {
-							audio = rebootAudio(audio);
-						}
-
-						audio.updatePitch((audioDuration - 5) / 100F + 0.5F);
-
-					} else {
-
-						if (audio != null) {
-							audio.stopSound();
-							audio = null;
-							if (this.state != EnumHadronState.PROGRESS) {
-								audio.stopSound();
-								audio = null;
-							}
-						}
-					}
+					isProgressing = false;
 				}
+				}
+			} else {
+
+			if(isProgressing) {
+				audio = createAudioLoop();
+				audio.startSound();
+			} else if (!audio.isPlaying()) {
+				audio = rebootAudio(audio);
+			} else {
+				audio.stopSound();
 			}
-			
+			if (audio != null) {
+				audio.stopSound();
+				audio = null;
+			}
+		}
+
+
 			if(delay > 0)
 				delay--;
 			else if(particles.isEmpty()) {
 				this.state = EnumHadronState.IDLE;
 			}
-			
+
 			if(!particles.isEmpty())
 				updateParticles();
-			
+
 			for(Particle p : particlesToRemove) {
 				particles.remove(p);
 			}
-			
+
 			particlesToRemove.clear();
-			
+
 			NBTTagCompound data = new NBTTagCompound();
 			data.setBoolean("isOn", isOn);
 			data.setLong("power", power);
 			data.setBoolean("analysis", analysisOnly);
 			data.setBoolean("hopperMode", hopperMode);
 			data.setByte("state", (byte) state.ordinal());
-			
+
 			data.setBoolean("stat_success", stat_success);
 			data.setByte("stat_state", (byte) stat_state.ordinal());
 			data.setInteger("stat_charge", stat_charge);
@@ -167,7 +157,6 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 			data.setInteger("stat_z", stat_z);
 			this.networkPack(data, 50);
 		}
-	}
 	
 	private void process(Particle p) {
 		
@@ -237,7 +226,7 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 	}
 	@Override
 	public AudioWrapper createAudioLoop() {
-		return MainRegistry.proxy.getLoopedSound("hbm:block.hadronOperate", xCoord, yCoord, zCoord, 2.0F, 25F, 1.0F);
+		return MainRegistry.proxy.getLoopedSound("hbm:block.centrifugeOperate", xCoord, yCoord, zCoord, 2.0F, 25F, 1.0F);
 	}
 
 	@Override
