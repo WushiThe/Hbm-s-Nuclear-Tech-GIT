@@ -130,7 +130,7 @@ public class HadronRecipes extends SerializableRecipe {
 		recipes.add(new HadronRecipe(
 				new ItemStack(ModItems.crystal_xen_lattice),
 				new ItemStack(ModItems.oscillating_energy),
-				191616,
+				1916169,
 				new ItemStack(ModItems.particle_lutece),
 				new ItemStack(ModItems.particle_lutece),
 				false));
