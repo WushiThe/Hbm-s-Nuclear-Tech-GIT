@@ -155,7 +155,9 @@ public class HazardRegistry {
 	public static final HazardTypeBase EXPLOSIVE = new HazardTypeExplosive();
 
 	public static void registerItems() {
-		HazardSystem.register(particle_graviton, makeData(RADIATION, 299792458F));
+		HazardSystem.register(ingot_oppenheimium, makeData(RADIATION, 20));
+		HazardSystem.register(billet_oppenheimium, makeData(RADIATION, 13.3F));
+		HazardSystem.register(particle_graviton, makeData(RADIATION, 299792458));
 		HazardSystem.register(particle_graviton, makeData(DIGAMMA, 0.1F));
 
 		HazardSystem.register(Items.gunpowder, makeData(EXPLOSIVE, 1F));
@@ -418,6 +420,7 @@ public class HazardRegistry {
 		registerRBMKRod(rbmk_fuel_zfb_am_mix, pu241 * rod_rbmk * 0.1F, wst * rod_rbmk * 10F);
 		registerRBMK(rbmk_fuel_drx, bf * rod_rbmk, bf * rod_rbmk * 100F, true, true, 0, 1F / 3F);
 		registerRBMKRod(rbmk_fuel_gravity, au198 * rod_rbmk, bf * rod_rbmk * 0.5F, true);
+		registerRBMKRod(rbmk_fuel_oppenheimium, pobe * rod_rbmk, pobe * rod_rbmk * 0.1F / 9 * 10, true);
 
 		registerRBMKPellet(rbmk_pellet_ueu, u * billet, wst * billet * 20F);
 		registerRBMKPellet(rbmk_pellet_meu, uf * billet, wst * billet * 21.5F);

@@ -116,6 +116,13 @@ public class ChemplantRecipes extends SerializableRecipe {
 				.outputItems(new ItemStack(ModItems.ingot_pet)));*/
 		
 		//Laminate Glass going here
+		recipes.add(new ChemRecipe(104, "CRADPAINT", 200)
+				.inputFluids(
+						new FluidStack(Fluids.ACID, 250))
+				.inputItems(
+						new ComparableStack(ModItems.powder_ra226),
+						new ComparableStack(ModItems.powder_fire, 2))
+				.outputFluids(new FluidStack(Fluids.RADPAINT, 500)));
 		recipes.add(new ChemRecipe(97, "LAMINATE", 100)
 				.inputFluids(
 						new FluidStack(Fluids.XYLENE, 250),

@@ -81,6 +81,7 @@ public class Fluids {
 	public static FluidType HYDROGEN;
 	public static FluidType OXYGEN;
 	public static FluidType XENON;
+	public static FluidType RADPAINT;
 	public static FluidType BALEFIRE;
 	public static FluidType MERCURY;
 	public static FluidType PAIN;				//tantalite solution
@@ -312,6 +313,7 @@ public class Fluids {
 		SMOKE_LEADED =			new FluidType("SMOKE_LEADED",		0x808080, 0, 0, 0, EnumSymbol.NONE).addTraits(GASEOUS, NOID, NOCON);
 		SMOKE_POISON =			new FluidType("SMOKE_POISON",		0x808080, 0, 0, 0, EnumSymbol.NONE).addTraits(GASEOUS, NOID, NOCON);
 		HELIUM4 =				new FluidType(123,"HELIUM4",		0xE54B0A, 0, 0, 0, EnumSymbol.ASPHYXIANT).addTraits(GASEOUS);
+		RADPAINT =				new FluidType("RADPAINT",			0xbbc2ba, 2, 0, 1, EnumSymbol.RADIATION).addTraits(new FT_VentRadiation(0.5F), DELICIOUS, NOCON, LIQUID, VISCOUS);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE
@@ -456,6 +458,8 @@ public class Fluids {
 		metaOrder.add(SMOKE);
 		metaOrder.add(SMOKE_LEADED);
 		metaOrder.add(SMOKE_POISON);
+		//bullshit
+		metaOrder.add(RADPAINT);
 
 		CHLORINE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 2F, 20, HazardClass.GAS_CHLORINE, false)));
 		PHOSGENE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 4F, 20, HazardClass.GAS_CHLORINE, false)));
