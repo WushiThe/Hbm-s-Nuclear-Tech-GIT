@@ -166,6 +166,7 @@ public class RodRecipes {
 		addRBMKRod(ModItems.billet_zfb_bismuth, ModItems.rbmk_fuel_zfb_bismuth);
 		addRBMKRod(ModItems.billet_zfb_pu241, ModItems.rbmk_fuel_zfb_pu241);
 		addRBMKRod(ModItems.billet_zfb_am_mix, ModItems.rbmk_fuel_zfb_am_mix);
+		addRBMKRod(ModItems.billet_oppenheimium, ModItems.rbmk_fuel_oppenheimium);
 		CraftingManager.addShapelessAuto(new ItemStack(ModItems.rbmk_fuel_drx, 1),
 				new Object[] { ModItems.rbmk_fuel_balefire, ModItems.particle_digamma });
 		CraftingManager.addShapelessAuto(new ItemStack(ModItems.rbmk_fuel_gravity, 1),

@@ -102,6 +102,7 @@ public class ModItems {
 	public static Item ingot_titanium;
 	public static Item ingot_cobalt;
 	public static Item sulfur;
+	public static Item ingot_oppenheimium;
 
 	public static Item coke;
 	public static Item lignite;
@@ -259,6 +260,7 @@ public class ModItems {
 	public static Item billet_bismuth;
 	public static Item billet_zirconium;
 	public static Item billet_nuclear_waste;
+	public static Item billet_oppenheimium;
 
 	public static Item nugget_th232;
 	public static Item nugget_uranium;
@@ -1148,6 +1150,7 @@ public class ModItems {
 	public static ItemRBMKRod rbmk_fuel_test;
 	public static ItemRBMKRod rbmk_fuel_gravity;
 	public static ItemRBMKRod rbmk_fuel_lutece;
+	public static ItemRBMKRod rbmk_fuel_oppenheimium;
 	public static ItemRBMKPellet rbmk_pellet_ueu;
 	public static ItemRBMKPellet rbmk_pellet_meu;
 	public static ItemRBMKPellet rbmk_pellet_heu233;
@@ -1181,6 +1184,7 @@ public class ModItems {
 	public static ItemRBMKPellet rbmk_pellet_drx;
 	public static ItemRBMKPellet rbmk_pellet_gravity;
 	public static ItemRBMKPellet rbmk_pellet_lutece;
+	public static ItemRBMKPellet rbmk_pellet_oppenheimium;
 
 	public static Item watz_pellet;
 	public static Item watz_pellet_depleted;
@@ -2580,6 +2584,8 @@ public class ModItems {
 				.setCreativeTab(MainRegistry.partsTab).setTextureName(RefStrings.MODID + ":ingot_smore");
 		sulfur = new Item().setUnlocalizedName("sulfur").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":sulfur");
+		ingot_oppenheimium = new Item().setUnlocalizedName("ingot_oppenheimium").setCreativeTab(MainRegistry.partsTab)
+				.setTextureName(RefStrings.MODID + ":ingot_oppenheimium");
 
 		ingot_uranium_fuel = new Item().setUnlocalizedName("ingot_uranium_fuel").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":ingot_uranium_fuel");
@@ -2833,6 +2839,8 @@ public class ModItems {
 				.setTextureName(RefStrings.MODID + ":billet_zfb_am_mix");
 		billet_nuclear_waste = new Item().setUnlocalizedName("billet_nuclear_waste")
 				.setCreativeTab(MainRegistry.partsTab).setTextureName(RefStrings.MODID + ":billet_nuclear_waste");
+		billet_oppenheimium = new Item().setUnlocalizedName("billet_oppenheimium").setCreativeTab(MainRegistry.partsTab)
+				.setTextureName(RefStrings.MODID + ":billet_oppenheimium");
 
 		ingot_dura_steel = new ItemCustomLore().setUnlocalizedName("ingot_dura_steel")
 				.setCreativeTab(MainRegistry.partsTab).setTextureName(RefStrings.MODID + ":ingot_dura_steel");
@@ -4827,6 +4835,8 @@ public class ModItems {
 				"Infinite Potential Energy unleashed by mere excitations in the wave function. Collapsing this wave function could cause the collapse of the multiverse.")
 				.disableXenon().setUnlocalizedName("rbmk_pellet_lutece")
 				.setTextureName(RefStrings.MODID + ":rbmk_pellet_lutece");
+		rbmk_pellet_oppenheimium = (ItemRBMKPellet) new ItemRBMKPellet("my le bomb... le killed people?").disableXenon()
+				.setUnlocalizedName("rbmk_pellet_oppenheimium").setTextureName(RefStrings.MODID + ":rbmk_pellet_oppenheimium");
 
 		rbmk_fuel_empty = new Item().setUnlocalizedName("rbmk_fuel_empty").setCreativeTab(MainRegistry.controlTab)
 				.setTextureName(RefStrings.MODID + ":rbmk_fuel_empty");
@@ -5099,6 +5109,13 @@ public class ModItems {
 				.setHeat(1.0D)
 				.setMeltingPoint(100000)
 				.setUnlocalizedName("rbmk_fuel_test").setTextureName(RefStrings.MODID + ":rbmk_fuel_test");
+		rbmk_fuel_oppenheimium = (ItemRBMKRod) new ItemRBMKRod(rbmk_pellet_oppenheimium)
+				.setYield(100000000D)
+				.setStats(30)
+				.setFunction(EnumBurnFunc.LINEAR)
+				.setHeat(1.25D)
+				.setMeltingPoint(50)
+				.setUnlocalizedName("rbmk_fuel_oppenheimium").setTextureName(RefStrings.MODID + ":rbmk_fuel_oppenheimium");
 
 		watz_pellet = new ItemWatzPellet().setUnlocalizedName("watz_pellet")
 				.setTextureName(RefStrings.MODID + ":watz_pellet");
@@ -8116,6 +8133,7 @@ public class ModItems {
 		GameRegistry.registerItem(ingot_au198, ingot_au198.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_pb209, ingot_pb209.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_ra226, ingot_ra226.getUnlocalizedName());
+		GameRegistry.registerItem(ingot_oppenheimium, ingot_oppenheimium.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_titanium, ingot_titanium.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_copper, ingot_copper.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_red_copper, ingot_red_copper.getUnlocalizedName());
@@ -8256,6 +8274,7 @@ public class ModItems {
 		GameRegistry.registerItem(billet_balefire_gold, billet_balefire_gold.getUnlocalizedName());
 		GameRegistry.registerItem(billet_flashlead, billet_flashlead.getUnlocalizedName());
 		GameRegistry.registerItem(billet_nuclear_waste, billet_nuclear_waste.getUnlocalizedName());
+		GameRegistry.registerItem(billet_oppenheimium, billet_oppenheimium.getUnlocalizedName());
 
 		// Dusts & Other
 		GameRegistry.registerItem(cinnebar, cinnebar.getUnlocalizedName());
@@ -9241,6 +9260,7 @@ public class ModItems {
 		GameRegistry.registerItem(rbmk_fuel_mep, rbmk_fuel_mep.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_hep239, rbmk_fuel_hep239.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_hep241, rbmk_fuel_hep241.getUnlocalizedName());
+		GameRegistry.registerItem(rbmk_fuel_oppenheimium, rbmk_fuel_oppenheimium.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_lea, rbmk_fuel_lea.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_mea, rbmk_fuel_mea.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_fuel_hea241, rbmk_fuel_hea241.getUnlocalizedName());
@@ -9300,6 +9320,7 @@ public class ModItems {
 		GameRegistry.registerItem(rbmk_pellet_drx, rbmk_pellet_drx.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_pellet_gravity, rbmk_pellet_gravity.getUnlocalizedName());
 		GameRegistry.registerItem(rbmk_pellet_lutece, rbmk_pellet_lutece.getUnlocalizedName());
+		GameRegistry.registerItem(rbmk_pellet_oppenheimium, rbmk_pellet_oppenheimium.getUnlocalizedName());
 
 		GameRegistry.registerItem(watz_pellet, watz_pellet.getUnlocalizedName());
 		GameRegistry.registerItem(watz_pellet_depleted, watz_pellet_depleted.getUnlocalizedName());
