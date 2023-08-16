@@ -82,6 +82,7 @@ public class ModBlocks {
 	public static Block ore_cinnebar;
 	public static Block ore_coltan;
 	public static Block ore_alexandrite;
+	public static Block ore_unium;
 
 	public static Block ore_random;
 	public static Block ore_bedrock;
@@ -1300,6 +1301,8 @@ public class ModBlocks {
 		ore_thorium = new BlockGeneric(Material.rock).setBlockName("ore_thorium").setCreativeTab(MainRegistry.blockTab)
 				.setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":ore_thorium");
 
+		ore_unium = new BlockGeneric(Material.rock).setBlockName("ore_unium").setCreativeTab(MainRegistry.blockTab)
+				.setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":ore_unium");
 		ore_niter = new BlockOre(Material.rock).setBlockName("ore_niter").setCreativeTab(MainRegistry.blockTab)
 				.setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":ore_niter");
 		ore_copper = new BlockGeneric(Material.rock).setBlockName("ore_copper").setCreativeTab(MainRegistry.blockTab)
@@ -4052,6 +4055,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(structure_anchor, structure_anchor.getUnlocalizedName());
 
 		// Ores
+		GameRegistry.registerBlock(ore_unium, ore_unium.getLocalizedName());
 		GameRegistry.registerBlock(ore_uranium, ore_uranium.getUnlocalizedName());
 		GameRegistry.registerBlock(ore_uranium_scorched, ore_uranium_scorched.getUnlocalizedName());
 		GameRegistry.registerBlock(ore_thorium, ore_thorium.getUnlocalizedName());

@@ -182,6 +182,10 @@ public class TileEntityMachinePlasmaHeater extends TileEntityMachineBase impleme
 			plasma.setTankType(Fluids.PLASMA_BF);
 			return;
 		}
+		if(types.contains(Fluids.UNICAT) && types.contains(Fluids.DEATH)) {
+			plasma.setTankType(Fluids.PLASMA_UNI);
+			return;
+		}
 		
 		plasma.setTankType(Fluids.NONE);
 	}

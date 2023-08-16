@@ -36,6 +36,7 @@ public abstract class FluidTrait {
 		traitNameMap.put("leaded", FT_Leaded.class);
 		traitNameMap.put("noid", FT_NoID.class);
 		traitNameMap.put("nocontainer", FT_NoContainer.class);
+		traitNameMap.put("horror", FT_Horror.class);
 	}
 
 	/** Important information that should always be displayed */

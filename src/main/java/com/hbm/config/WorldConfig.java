@@ -9,6 +9,7 @@ public class WorldConfig {
 	public static boolean endOre = true;
 	
 	public static int uraniumSpawn = 6;
+	public static int uniumSpawn = 6;
 	public static int thoriumSpawn = 7;
 	public static int titaniumSpawn = 8;
 	public static int sulfurSpawn = 5;
@@ -114,6 +115,7 @@ public class WorldConfig {
 		endOre = CommonConfig.createConfigBool(config, CATEGORY_OREGEN, "2.D02_endOres", "General switch for whether end ores should be generated. Does not include special structures like trixite crystals.", true);
 		
 		uraniumSpawn = CommonConfig.createConfigInt(config, CATEGORY_OREGEN, "2.00_uraniumSpawnrate", "Amount of uranium ore veins per chunk", 7);
+		uniumSpawn = CommonConfig.createConfigInt(config, CATEGORY_OREGEN, "2.00_uniumSpawnrate", "Amount of unium ore veins per chunk", 7);
 		titaniumSpawn = CommonConfig.createConfigInt(config, CATEGORY_OREGEN, "2.01_titaniumSpawnrate", "Amount of titanium ore veins per chunk", 8);
 		sulfurSpawn = CommonConfig.createConfigInt(config, CATEGORY_OREGEN, "2.02_sulfurSpawnrate", "Amount of sulfur ore veins per chunk", 5);
 		aluminiumSpawn = CommonConfig.createConfigInt(config, CATEGORY_OREGEN, "2.03_aluminiumSpawnrate", "Amount of aluminium ore veins per chunk", 7);

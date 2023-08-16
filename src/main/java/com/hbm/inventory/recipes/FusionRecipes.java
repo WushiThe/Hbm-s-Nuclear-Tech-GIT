@@ -19,6 +19,7 @@ public class FusionRecipes {
 		chances.put(Fluids.PLASMA_HT, 1200);
 		chances.put(Fluids.PLASMA_XM, 1200);
 		chances.put(Fluids.PLASMA_BF, 150);
+		chances.put(Fluids.PLASMA_UNI, 5);
 	}
 	
 	public static int getByproductChance(FluidType plasma) {
@@ -34,6 +35,7 @@ public class FusionRecipes {
 		levels.put(Fluids.PLASMA_HT, 1000);
 		levels.put(Fluids.PLASMA_XM, 3000);
 		levels.put(Fluids.PLASMA_BF, 4000);
+		levels.put(Fluids.PLASMA_UNI, 8000);
 	}
 	
 	public static int getBreedingLevel(FluidType plasma) {
@@ -49,6 +51,7 @@ public class FusionRecipes {
 		byproducts.put(Fluids.PLASMA_HT, new ItemStack(ModItems.pellet_charged));
 		byproducts.put(Fluids.PLASMA_XM, new ItemStack(ModItems.powder_chlorophyte));
 		byproducts.put(Fluids.PLASMA_BF, new ItemStack(ModItems.powder_balefire));
+		byproducts.put(Fluids.PLASMA_UNI, new ItemStack(ModItems.pellet_charged));
 	}
 	
 	public static ItemStack getByproduct(FluidType plasma) {
@@ -64,6 +67,7 @@ public class FusionRecipes {
 		steamprod.put(Fluids.PLASMA_HT, 25);
 		steamprod.put(Fluids.PLASMA_XM, 60);
 		steamprod.put(Fluids.PLASMA_BF, 160);
+		steamprod.put(Fluids.PLASMA_UNI, 1280);
 	}
 	
 	public static int getSteamProduction(FluidType plasma) {

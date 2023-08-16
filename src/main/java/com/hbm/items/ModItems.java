@@ -4832,7 +4832,8 @@ public class ModItems {
 				.disableXenon().setUnlocalizedName("rbmk_pellet_gravity")
 				.setTextureName(RefStrings.MODID + ":rbmk_pellet_gravity");
 		rbmk_pellet_lutece = (ItemRBMKPellet) new ItemRBMKPellet(
-				"Infinite Potential Energy unleashed by mere excitations in the wave function. Collapsing this wave function could cause the collapse of the multiverse.")
+				"Infinite Potential Energy unleashed by mere excitations in the wave function." +
+						"Collapsing this wave function could cause the collapse of the multiverse.")
 				.disableXenon().setUnlocalizedName("rbmk_pellet_lutece")
 				.setTextureName(RefStrings.MODID + ":rbmk_pellet_lutece");
 		rbmk_pellet_oppenheimium = (ItemRBMKPellet) new ItemRBMKPellet("my le bomb... le killed people?").disableXenon()
@@ -5113,7 +5114,7 @@ public class ModItems {
 				.setYield(100000000D)
 				.setStats(30)
 				.setFunction(EnumBurnFunc.LINEAR)
-				.setHeat(1.25D)
+				.setHeat(1500.0D)
 				.setMeltingPoint(50)
 				.setUnlocalizedName("rbmk_fuel_oppenheimium").setTextureName(RefStrings.MODID + ":rbmk_fuel_oppenheimium");
 

@@ -5,9 +5,11 @@ import java.util.List;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.machine.MachineITER;
+import com.hbm.entity.effect.EntityBlackHole;
 import com.hbm.explosion.ExplosionLarge;
 import com.hbm.explosion.ExplosionNT;
 import com.hbm.explosion.ExplosionNT.ExAttrib;
+import com.hbm.explosion.vanillant.ExplosionVNT;
 import com.hbm.interfaces.IFluidAcceptor;
 import com.hbm.interfaces.IFluidSource;
 import com.hbm.inventory.container.ContainerITER;
@@ -248,6 +250,16 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyUser
 			data.setBoolean("balefire", true);
 			PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5), new TargetPoint(worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 250));
 			
+		} else if(this.plasma.getTankType() == Fluids.PLASMA_UNI) {
+			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+			new ExplosionVNT(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 50F)
+					.makeAmat().explode();
+			EntityBlackHole bl = new EntityBlackHole(worldObj, 15F);
+			bl.posX = xCoord + 0.5;
+			bl.posY = yCoord + 0.5;
+			bl.posZ = zCoord + 0.5;
+			worldObj.spawnEntityInWorld(bl);
+
 		} else {
 			Vec3 vec = Vec3.createVectorHelper(5.5, 0, 0);
 			vec.rotateAroundY(worldObj.rand.nextFloat() * (float)Math.PI * 2F);

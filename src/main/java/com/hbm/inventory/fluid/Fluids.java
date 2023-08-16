@@ -82,6 +82,7 @@ public class Fluids {
 	public static FluidType OXYGEN;
 	public static FluidType XENON;
 	public static FluidType RADPAINT;
+	public static FluidType UNICAT;
 	public static FluidType BALEFIRE;
 	public static FluidType MERCURY;
 	public static FluidType PAIN;				//tantalite solution
@@ -157,6 +158,7 @@ public class Fluids {
 	public static FluidType SMOKE_LEADED;
 	public static FluidType SMOKE_POISON;
 	public static FluidType HELIUM4;
+	public static FluidType PLASMA_UNI;
 
 	private static final HashMap<Integer, FluidType> idMapping = new HashMap();
 	private static final HashMap<String, FluidType> nameMapping = new HashMap();
@@ -173,7 +175,8 @@ public class Fluids {
 	public static final FT_NoID NOID = new FT_NoID();
 	public static final FT_Delicious DELICIOUS = new FT_Delicious();
 	public static final FT_Leaded LEADED = new FT_Leaded();
-	
+	public static final FT_Horror HORROR = new FT_Horror();
+
 	public static void init() {
 		
 		// ##### ##### ##### ##### ##  # ##### #   # ##### ##  # #####
@@ -243,7 +246,7 @@ public class Fluids {
 		PLASMA_HD =				new FluidType("PLASMA_HD",			0xF0ADF4, 0, 4, 0, EnumSymbol.RADIATION).setTemp(2500).addTraits(NOCON, NOID, PLASMA);
 		PLASMA_HT =				new FluidType("PLASMA_HT",			0xD1ABF2, 0, 4, 0, EnumSymbol.RADIATION).setTemp(3000).addTraits(NOCON, NOID, PLASMA);
 		PLASMA_XM =				new FluidType("PLASMA_XM",			0xC6A5FF, 0, 4, 1, EnumSymbol.RADIATION).setTemp(4250).addTraits(NOCON, NOID, PLASMA);
-		PLASMA_BF =				new FluidType("PLASMA_BF",			0xA7F1A3, 4, 5, 4, EnumSymbol.ANTIMATTER).setTemp(8500).addTraits(NOCON, NOID, PLASMA);
+		PLASMA_BF =				new FluidType("PLASMA_BF",			0xA7F1A3, 4, 5, 4, EnumSymbol.ANTIMATTER).setTemp(6375).addTraits(NOCON, NOID, PLASMA);
 		CARBONDIOXIDE =			new FluidType("CARBONDIOXIDE",		0x404040, 3, 0, 0, EnumSymbol.ASPHYXIANT).addTraits(GASEOUS);
 		PLASMA_DH3 =			new FluidType("PLASMA_DH3",			0xFF83AA, 0, 4, 0, EnumSymbol.RADIATION).setTemp(3480).addTraits(NOCON, NOID, PLASMA);
 		HELIUM3 =				new FluidType("HELIUM3",			0xFCF0C4, 0, 0, 0, EnumSymbol.ASPHYXIANT).addTraits(GASEOUS);
@@ -314,6 +317,8 @@ public class Fluids {
 		SMOKE_POISON =			new FluidType("SMOKE_POISON",		0x808080, 0, 0, 0, EnumSymbol.NONE).addTraits(GASEOUS, NOID, NOCON);
 		HELIUM4 =				new FluidType(123,"HELIUM4",		0xE54B0A, 0, 0, 0, EnumSymbol.ASPHYXIANT).addTraits(GASEOUS);
 		RADPAINT =				new FluidType("RADPAINT",			0xbbc2ba, 2, 0, 1, EnumSymbol.RADIATION).addTraits(new FT_VentRadiation(0.5F), DELICIOUS, NOCON, LIQUID, VISCOUS);
+		UNICAT =				new FluidType("UNICAT",		0x333333, 0, 1, 0, EnumSymbol.NONE).addTraits(LIQUID, HORROR);
+		PLASMA_UNI =			new FluidType("PLASMA_UNI",			0x000000, 4, 5, 4, EnumSymbol.ANTIMATTER).setTemp(8999).addTraits(NOCON, NOID, PLASMA, HORROR);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE
@@ -454,12 +459,14 @@ public class Fluids {
 		metaOrder.add(PLASMA_DH3);
 		metaOrder.add(PLASMA_XM);
 		metaOrder.add(PLASMA_BF);
+		metaOrder.add(PLASMA_UNI);
 		//smoke
 		metaOrder.add(SMOKE);
 		metaOrder.add(SMOKE_LEADED);
 		metaOrder.add(SMOKE_POISON);
 		//bullshit
 		metaOrder.add(RADPAINT);
+		metaOrder.add(UNICAT);
 
 		CHLORINE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 2F, 20, HazardClass.GAS_CHLORINE, false)));
 		PHOSGENE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 4F, 20, HazardClass.GAS_CHLORINE, false)));

@@ -259,6 +259,8 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 			return 2.2F;
 		if(type == Fluids.ASCHRAB)
 			return 2.7F;
+		if(type == Fluids.UNICAT)
+			return 43.6F;
 		return 0;
 	}
 	
