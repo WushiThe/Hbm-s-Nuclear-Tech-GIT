@@ -47,6 +47,7 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 	public static final ResourceLocation bobble_cirno = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/cirno.png");
 	public static final ResourceLocation bobble_microwave = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/microwave.png");
 	public static final ResourceLocation bobble_peep = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/peep.png");
+	public static final ResourceLocation bobble_uni = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/unibob.png");
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float intero) {
@@ -98,6 +99,7 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 		case DRILLGON:	bindTexture(bobble_drillgon); break;
 		case MICROWAVE:	bindTexture(bobble_microwave); break;
 		case PEEP:		bindTexture(bobble_peep); break;
+		case UNI:		bindTexture(bobble_uni); break;
 		default:		bindTexture(ResourceManager.universal);
 		}
 		
@@ -204,6 +206,9 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 		case PEEP:
 			rotLeftArm = new double[]{0, 0, 1};
 			rotRightArm = new double[]{0, 0, 1};
+			case UNI:
+				rotLeftArm = new double[]{0, 0, 1};
+				rotRightArm = new double[]{0, 0, 1};
 			break;
 		}
 	}

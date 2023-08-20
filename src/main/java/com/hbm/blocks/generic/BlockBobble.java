@@ -192,6 +192,7 @@ public class BlockBobble extends BlockContainer implements IGUIProvider {
 		DRILLGON(		"Drillgon200",						"Drillgon200",		"1.12 Port",												null,																								false,	ScrapType.CPU_LOGIC),
 		CIRNO(			"Cirno",							"Cirno",			"the only multi layered skin i had",						"No brain. Head empty.",																			true,	ScrapType.BOARD_BLANK),
 		MICROWAVE(		"Microwave",						"Microwave",		"OC compat",												"they call me the food heater",																		true,	ScrapType.BRIDGE_BIOS),
+		UNI(		"UNI",						"He",		"HORROR",												"!!meow! :33 purrr :33 meowww! :33!!",																		true,	ScrapType.CPU_LOGIC),
 		PEEP(			"Peep",								"LePeeperSauvage",	"Coilgun model",											"Fluffy ears can't hide in ash, nor snow.",															true,	ScrapType.CPU_CLOCK);
 
 		public String name;			//the title of the tooltip
