@@ -39,6 +39,8 @@ public class Fluids {
 	public static FluidType SUPERHOTSTEAM;
 	public static FluidType ULTRAHOTSTEAM;
 	public static FluidType COOLANT;
+	public static FluidType CUM;
+	public static FluidType CUM_HOT;
 	public static FluidType COOLANT_HOT;
 	public static FluidType LAVA;
 	public static FluidType DEUTERIUM;
@@ -319,6 +321,8 @@ public class Fluids {
 		RADPAINT =				new FluidType("RADPAINT",			0xbbc2ba, 2, 0, 1, EnumSymbol.RADIATION).addTraits(new FT_VentRadiation(0.5F), DELICIOUS, NOCON, LIQUID, VISCOUS);
 		UNICAT =				new FluidType("UNICAT",		0x333333, 0, 1, 0, EnumSymbol.NONE).addTraits(LIQUID, HORROR);
 		PLASMA_UNI =			new FluidType("PLASMA_UNI",			0x000000, 4, 5, 4, EnumSymbol.ANTIMATTER).setTemp(8999).addTraits(NOCON, NOID, PLASMA, HORROR);
+		CUM =					new FluidType("CUM",			0xebebeb, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
+		CUM_HOT =				new FluidType("CUM_HOT",			0xdbabab, 1, 0, 0, EnumSymbol.NONE).setTemp(696).addTraits(LIQUID);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE
@@ -467,6 +471,9 @@ public class Fluids {
 		//bullshit
 		metaOrder.add(RADPAINT);
 		metaOrder.add(UNICAT);
+		metaOrder.add(CUM);
+		metaOrder.add(CUM_HOT);
+
 
 		CHLORINE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 2F, 20, HazardClass.GAS_CHLORINE, false)));
 		PHOSGENE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 4F, 20, HazardClass.GAS_CHLORINE, false)));
@@ -503,6 +510,9 @@ public class Fluids {
 		
 		COOLANT.addTraits(new FT_Heatable().setEff(HeatingType.HEATEXCHANGER, 1.0D).addStep(300, 1, COOLANT_HOT, 1));
 		COOLANT_HOT.addTraits(new FT_Coolable(COOLANT, 1, 1, 300).setEff(CoolingType.HEATEXCHANGER, 1.0D));
+
+		CUM.addTraits(new FT_Heatable().setEff(HeatingType.HEATEXCHANGER, 1.0D).addStep(696, 1, CUM_HOT, 1));
+		CUM_HOT.addTraits(new FT_Coolable(CUM, 1, 1, 696).setEff(CoolingType.HEATEXCHANGER, 1.0D));
 		
 		MUG.addTraits(new FT_Heatable().setEff(HeatingType.HEATEXCHANGER, 1.0D).addStep(400, 1, MUG_HOT, 1));
 		MUG_HOT.addTraits(new FT_Coolable(MUG, 1, 1, 400).setEff(CoolingType.HEATEXCHANGER, 1.0D));
