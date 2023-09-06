@@ -48,6 +48,7 @@ public class SolidificationRecipes extends SerializableRecipe {
 	public static final int SF_COALOIL =	200;
 	public static final int SF_CREOSOTE =	200;
 	public static final int SF_WOOD =		1000;
+	public static final int SF_OPIUMAL =		1000;
 	//mostly for alternate chemistry, dump into SF if not desired
 	public static final int SF_AROMA =		1000;
 	public static final int SF_UNSAT =		1000;
@@ -68,6 +69,7 @@ public class SolidificationRecipes extends SerializableRecipe {
 		registerRecipe(ENDERJUICE,	100,			Items.ender_pearl);
 		registerRecipe(WATZ,		1000,			ModItems.ingot_mud);
 		registerRecipe(REDMUD,		1000,			Items.iron_ingot);
+		registerRecipe(OPIUMAL,		1000,			ModItems.ingot_opium);
 
 		registerRecipe(OIL,				SF_OIL,			DictFrame.fromOne(ModItems.oil_tar, EnumTarType.CRUDE));
 		registerRecipe(CRACKOIL,		SF_CRACK,		DictFrame.fromOne(ModItems.oil_tar, EnumTarType.CRACK));

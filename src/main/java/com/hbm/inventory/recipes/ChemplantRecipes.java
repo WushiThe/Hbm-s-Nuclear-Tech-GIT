@@ -210,6 +210,11 @@ public class ChemplantRecipes extends SerializableRecipe {
 						new OreDictStack(KEY_SAND, 8))
 				.inputFluids(new FluidStack(Fluids.WATER, 2000))
 				.outputItems(new ItemStack(ModBlocks.concrete_smooth, 16)));
+		recipes.add(new ChemRecipe(105, "OPIUMALK", 100)
+				.inputItems(
+						new ComparableStack(Blocks.red_flower, 8))
+				.inputFluids(new FluidStack(Fluids.WATER, 500))
+				.outputFluids(new FluidStack(Fluids.OPIUMAL, 1000)));
 		recipes.add(new ChemRecipe(56, "CONCRETE_ASBESTOS", 100)
 				.inputItems(
 						new ComparableStack(Blocks.gravel, 2),

@@ -161,6 +161,7 @@ public class Fluids {
 	public static FluidType SMOKE_POISON;
 	public static FluidType HELIUM4;
 	public static FluidType PLASMA_UNI;
+	public static FluidType OPIUMAL;
 
 	private static final HashMap<Integer, FluidType> idMapping = new HashMap();
 	private static final HashMap<String, FluidType> nameMapping = new HashMap();
@@ -323,6 +324,7 @@ public class Fluids {
 		PLASMA_UNI =			new FluidType("PLASMA_UNI",			0x000000, 4, 5, 4, EnumSymbol.ANTIMATTER).setTemp(8999).addTraits(NOCON, NOID, PLASMA, HORROR);
 		CUM =					new FluidType("CUM",			0xebebeb, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
 		CUM_HOT =				new FluidType("CUM_HOT",			0xdbabab, 1, 0, 0, EnumSymbol.NONE).setTemp(696).addTraits(LIQUID);
+		OPIUMAL =   			new FluidType("OPIUMAL",			0xb5b5b5, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE
@@ -473,6 +475,7 @@ public class Fluids {
 		metaOrder.add(UNICAT);
 		metaOrder.add(CUM);
 		metaOrder.add(CUM_HOT);
+		metaOrder.add(OPIUMAL);
 
 
 		CHLORINE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 2F, 20, HazardClass.GAS_CHLORINE, false)));
