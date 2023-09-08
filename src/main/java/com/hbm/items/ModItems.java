@@ -152,6 +152,7 @@ public class ModItems {
 	public static Item ingot_semtex;
 	public static Item ingot_c4;
 	public static Item ingot_opium;
+	public static Item powder_morphine;
 	public static Item ingot_boron;
 	public static Item ingot_graphite;
 	public static Item ingot_firebrick;
@@ -2671,6 +2672,8 @@ public class ModItems {
 				.setTextureName(RefStrings.MODID + ":ingot_c4");
 		ingot_opium = new Item().setUnlocalizedName("ingot_opium").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":ingot_opium");
+		powder_morphine = new Item().setUnlocalizedName("powder_morphine").setCreativeTab(MainRegistry.partsTab)
+				.setTextureName(RefStrings.MODID + ":powder_morphine");
 		ingot_phosphorus = new Item().setUnlocalizedName("ingot_phosphorus").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":ingot_phosphorus");
 		wire_advanced_alloy = new Item().setUnlocalizedName("wire_advanced_alloy").setCreativeTab(MainRegistry.partsTab)
@@ -8215,6 +8218,7 @@ public class ModItems {
 		GameRegistry.registerItem(ingot_semtex, ingot_semtex.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_c4, ingot_c4.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_opium, ingot_opium.getUnlocalizedName());
+		GameRegistry.registerItem(powder_morphine, powder_morphine.getUnlocalizedName());
 		GameRegistry.registerItem(oil_tar, oil_tar.getUnlocalizedName());
 		GameRegistry.registerItem(solid_fuel, solid_fuel.getUnlocalizedName());
 		GameRegistry.registerItem(solid_fuel_presto, solid_fuel_presto.getUnlocalizedName());

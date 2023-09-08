@@ -215,6 +215,26 @@ public class ChemplantRecipes extends SerializableRecipe {
 						new ComparableStack(Blocks.red_flower, 8))
 				.inputFluids(new FluidStack(Fluids.WATER, 500))
 				.outputFluids(new FluidStack(Fluids.OPIUMAL, 1000)));
+
+
+		recipes.add(new ChemRecipe(106, "RESINPROD", 100)
+				.inputItems(
+					new ComparableStack(ModItems.powder_coal, 4),
+					new OreDictStack(S.dust(), 4),
+					new ComparableStack(ModItems.ingot_polymer, 2))
+				.inputFluids(
+						new FluidStack(Fluids.HYDROGEN, 500),
+						new FluidStack(Fluids.OXYGEN, 500))
+				.outputFluids(new FluidStack(Fluids.RESIN, 2000)));
+
+
+		recipes.add(new ChemRecipe(107, "MORPHINEPROD", 100)
+				.inputFluids(
+					new FluidStack(Fluids.OPIUMAL, 500),
+					new FluidStack(Fluids.RESIN, 500))
+				.outputItems(new ItemStack(ModItems.powder_morphine, 4)));
+
+
 		recipes.add(new ChemRecipe(56, "CONCRETE_ASBESTOS", 100)
 				.inputItems(
 						new ComparableStack(Blocks.gravel, 2),
