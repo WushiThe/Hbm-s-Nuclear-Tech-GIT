@@ -192,6 +192,7 @@ public class TileMappings {
 		put(TileEntityPipeExhaust.class, "tileentity_pipe_exhaust");
 		put(TileEntityFluidValve.class, "tileentity_pipe_valve");
 		put(TileEntityMachineBAT9000.class, "tileentity_bat9000");
+		put(TileEntityMachineORB3000.class, "tileentity_orb3000");
 		put(TileEntityMachineOrbus.class, "tileentity_orbus");
 		put(TileEntityGlpyhidSpawner.class, "tileentity_glyphid_spawner");
 		put(TileEntityCustomMachine.class, "tileentity_custom_machine");

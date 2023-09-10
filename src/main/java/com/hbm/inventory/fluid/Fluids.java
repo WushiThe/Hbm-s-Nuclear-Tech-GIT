@@ -163,6 +163,7 @@ public class Fluids {
 	public static FluidType PLASMA_UNI;
 	public static FluidType OPIUMAL;
 	public static FluidType RESIN;
+	public static FluidType PRINGLESF;
 
 	private static final HashMap<Integer, FluidType> idMapping = new HashMap();
 	private static final HashMap<String, FluidType> nameMapping = new HashMap();
@@ -327,6 +328,7 @@ public class Fluids {
 		CUM_HOT =				new FluidType("CUM_HOT",			0xdbabab, 1, 0, 0, EnumSymbol.NONE).setTemp(696).addTraits(LIQUID);
 		OPIUMAL =   			new FluidType("OPIUMAL",			0xb5b5b5, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
 		RESIN =   				new FluidType("RESIN",			0xd1f0ff, 1, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
+		PRINGLESF =   				new FluidType("PRINGLESF",			0xd1f0ff, 1, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE
@@ -479,6 +481,7 @@ public class Fluids {
 		metaOrder.add(CUM_HOT);
 		metaOrder.add(OPIUMAL);
 		metaOrder.add(RESIN);
+		metaOrder.add(PRINGLESF);
 
 		CHLORINE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 2F, 20, HazardClass.GAS_CHLORINE, false)));
 		PHOSGENE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 4F, 20, HazardClass.GAS_CHLORINE, false)));

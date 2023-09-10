@@ -1022,6 +1022,7 @@ public class ModBlocks {
 	public static Block machine_fluidtank;
 	public static Block machine_bat9000;
 	public static Block machine_orbus;
+	public static Block machine_orb3000;
 
 	public static Block launch_pad;
 
@@ -3691,6 +3692,9 @@ public class ModBlocks {
 		machine_orbus = new MachineOrbus(Material.iron).setBlockName("machine_orbus").setHardness(5.0F)
 				.setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)
 				.setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_orb3000 = new MachineORB3000(Material.iron).setBlockName("machine_orb3000").setHardness(5.0F)
+				.setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)
+				.setBlockTextureName(RefStrings.MODID + ":block_steel");
 		machine_turbofan = new MachineTurbofan(Material.iron).setBlockName("machine_turbofan").setHardness(5.0F)
 				.setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)
 				.setBlockTextureName(RefStrings.MODID + ":machine_turbofan");
@@ -4953,6 +4957,7 @@ public class ModBlocks {
 		register(machine_fluidtank);
 		register(machine_bat9000);
 		register(machine_orbus);
+		register(machine_orb3000);
 		GameRegistry.registerBlock(machine_boiler_off, machine_boiler_off.getUnlocalizedName());
 		GameRegistry.registerBlock(machine_boiler_on, machine_boiler_on.getUnlocalizedName());
 		GameRegistry.registerBlock(machine_boiler_electric_on, machine_boiler_electric_on.getUnlocalizedName());
