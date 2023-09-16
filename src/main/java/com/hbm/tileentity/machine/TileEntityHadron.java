@@ -8,6 +8,7 @@ import java.util.List;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.machine.BlockHadronCoil;
 import com.hbm.blocks.machine.BlockHadronPlating;
+import com.hbm.handler.radiation.ChunkRadiationManager;
 import com.hbm.inventory.container.ContainerHadron;
 import com.hbm.inventory.gui.GUIHadron;
 import com.hbm.inventory.recipes.HadronRecipes;
@@ -559,6 +560,7 @@ public class TileEntityHadron extends TileEntityMachineBase implements IEnergyUs
 						//worldObj.setBlock(a, b, c, Blocks.dirt);
 
 						p.expire(EnumHadronState.ERROR_MALFORMED_SEGMENT);
+						ChunkRadiationManager.proxy.incrementRad(worldObj, xCoord, yCoord, zCoord, 100);
 					}
 				}
 			}
