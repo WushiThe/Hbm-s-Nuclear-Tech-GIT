@@ -5,9 +5,14 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import com.hbm.config.BombConfig;
+import com.hbm.entity.effect.EntityBlackHole;
 import com.hbm.entity.effect.EntityCloudFleijaRainbow;
 import com.hbm.entity.logic.EntityNukeExplosionMK3;
 import com.hbm.entity.logic.EntityNukeExplosionMK3.ATEntry;
+import com.hbm.entity.logic.EntityTomBlast;
+import com.hbm.entity.projectile.EntityTom;
+import com.hbm.explosion.vanillant.ExplosionVNT;
+import com.hbm.explosion.ExplosionTom;
 import com.hbm.handler.radiation.ChunkRadiationManager;
 import com.hbm.inventory.container.ContainerCore;
 import com.hbm.inventory.fluid.FluidType;
@@ -18,9 +23,11 @@ import com.hbm.items.ModItems;
 import com.hbm.items.machine.ItemCatalyst;
 import com.hbm.lib.Library;
 import com.hbm.lib.ModDamageSource;
+import com.hbm.saveddata.SatelliteSavedData;
 import com.hbm.tileentity.IGUIProvider;
 import com.hbm.tileentity.TileEntityMachineBase;
 import com.hbm.util.ArmorUtil;
+import com.hbm.explosion.ExplosionTom;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -32,6 +39,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
 
 public class TileEntityCore extends TileEntityMachineBase implements IGUIProvider {
 	
@@ -94,33 +102,70 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 						break;
 					}
 				}
-				
+
+
 				if(canExplode) {
-					
-					EntityNukeExplosionMK3 ex = new EntityNukeExplosionMK3(worldObj);
-					ex.posX = xCoord + 0.5;
-					ex.posY = yCoord + 0.5;
-					ex.posZ = zCoord + 0.5;
-					ex.destructionRange = size;
-					ex.speed = BombConfig.blastSpeed;
-					ex.coefficient = 1.0F;
-					ex.waste = false;
-					worldObj.spawnEntityInWorld(ex);
-					
-					worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.explode", 100000.0F, 1.0F);
-					
-					EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(worldObj, size);
-					cloud.posX = xCoord;
-					cloud.posY = yCoord;
-					cloud.posZ = zCoord;
-					worldObj.spawnEntityInWorld(cloud);
-					
+					if ((tanks[0].getTankType() == Fluids.UNICAT || tanks[1].getTankType() == Fluids.UNICAT)) {
+
+						EntityTomBlast tom = new EntityTomBlast(worldObj);
+						tom.posX = xCoord + 0.5;
+						tom.posY = yCoord + 0.5;
+						tom.posZ = zCoord + 0.5;
+						tom.destructionRange = 600;
+						worldObj.spawnEntityInWorld(tom);
+
+
+						worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
+						EntityBlackHole bl = new EntityBlackHole(worldObj, 15F);
+						bl.posX = xCoord + 0.5;
+						bl.posY = yCoord + 0.5;
+						bl.posZ = zCoord + 0.5;
+						worldObj.spawnEntityInWorld(bl);
+						EntityNukeExplosionMK3 ex = new EntityNukeExplosionMK3(worldObj);
+						ex.posX = xCoord + 0.5;
+						ex.posY = yCoord + 0.5;
+						ex.posZ = zCoord + 0.5;
+						ex.destructionRange = size;
+						ex.speed = BombConfig.blastSpeed;
+						ex.coefficient = 1.0F;
+						ex.waste = false;
+						worldObj.spawnEntityInWorld(ex);
+
+						worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.explode", 100000.0F, 1.0F);
+
+						EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(worldObj, size);
+						cloud.posX = xCoord;
+						cloud.posY = yCoord;
+						cloud.posZ = zCoord;
+						worldObj.spawnEntityInWorld(cloud);
+
+					} else if ((tanks[0].getTankType() != Fluids.UNICAT)) {
+						EntityNukeExplosionMK3 ex = new EntityNukeExplosionMK3(worldObj);
+						ex.posX = xCoord + 0.5;
+						ex.posY = yCoord + 0.5;
+						ex.posZ = zCoord + 0.5;
+						ex.destructionRange = size;
+						ex.speed = BombConfig.blastSpeed;
+						ex.coefficient = 1.0F;
+						ex.waste = false;
+						worldObj.spawnEntityInWorld(ex);
+
+						worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.explode", 100000.0F, 1.0F);
+
+						EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(worldObj, size);
+						cloud.posX = xCoord;
+						cloud.posY = yCoord;
+						cloud.posZ = zCoord;
+						worldObj.spawnEntityInWorld(cloud);
+
+					}
 				} else {
-					meltdownTick = true;
-					ChunkRadiationManager.proxy.incrementRad(worldObj, xCoord, yCoord, zCoord, 100);
+						meltdownTick = true;
+						ChunkRadiationManager.proxy.incrementRad(worldObj, xCoord, yCoord, zCoord, 100);
+					}
 				}
-			}
-			
+
+
 			if(slots[0] != null && slots[2] != null && slots[0].getItem() instanceof ItemCatalyst && slots[2].getItem() instanceof ItemCatalyst)
 				color = calcAvgHex(
 						((ItemCatalyst)slots[0].getItem()).getColor(),
@@ -237,7 +282,8 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 		
 		return (long) (joules * getCore() * getFuelEfficiency(tanks[0].getTankType()) * getFuelEfficiency(tanks[1].getTankType()));
 	}
-	
+
+
 	public float getFuelEfficiency(FluidType type) {
 		if(type == Fluids.HYDROGEN)
 			return 1.0F;

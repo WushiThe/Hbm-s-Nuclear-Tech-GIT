@@ -322,13 +322,13 @@ public class Fluids {
 		SMOKE_POISON =			new FluidType("SMOKE_POISON",		0x808080, 0, 0, 0, EnumSymbol.NONE).addTraits(GASEOUS, NOID, NOCON);
 		HELIUM4 =				new FluidType(123,"HELIUM4",		0xE54B0A, 0, 0, 0, EnumSymbol.ASPHYXIANT).addTraits(GASEOUS);
 		RADPAINT =				new FluidType("RADPAINT",			0xbbc2ba, 2, 0, 1, EnumSymbol.RADIATION).addTraits(new FT_VentRadiation(0.5F), DELICIOUS, NOCON, LIQUID, VISCOUS);
-		UNICAT =				new FluidType("UNICAT",		0x333333, 0, 1, 0, EnumSymbol.NONE).addTraits(LIQUID, HORROR);
-		PLASMA_UNI =			new FluidType("PLASMA_UNI",			0x000000, 4, 5, 4, EnumSymbol.ANTIMATTER).setTemp(8999).addTraits(NOCON, NOID, PLASMA, HORROR);
-		CUM =					new FluidType("CUM",			0xebebeb, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
-		CUM_HOT =				new FluidType("CUM_HOT",			0xdbabab, 1, 0, 0, EnumSymbol.NONE).setTemp(696).addTraits(LIQUID);
+		UNICAT =				new FluidType("UNICAT",		0x333333, 6, 6, 6, EnumSymbol.NONE).addTraits(LIQUID, HORROR);
+		PLASMA_UNI =			new FluidType("PLASMA_UNI",			0x000000, 6, 6, 6, EnumSymbol.ANTIMATTER).setTemp(8999).addTraits(NOCON, NOID, PLASMA, HORROR);
+		CUM =					new FluidType("CUM",			0xebebeb, 0, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
+		CUM_HOT =				new FluidType("CUM_HOT",			0xdbabab, 0, 1, 0, EnumSymbol.NONE).addTraits(VISCOUS).setTemp(696).addTraits(LIQUID);
 		OPIUMAL =   			new FluidType("OPIUMAL",			0xb5b5b5, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
 		RESIN =   				new FluidType("RESIN",			0xd1f0ff, 1, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
-		PRINGLESF =   				new FluidType("PRINGLESF",			0xd1f0ff, 1, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
+		PRINGLESF =   				new FluidType("PRINGLESF",			0xd1f0ff, 0, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE

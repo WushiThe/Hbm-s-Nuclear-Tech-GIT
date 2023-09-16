@@ -41,7 +41,7 @@ public class MachineORB3000 extends BlockDummyable implements IPersistentInfoPro
 
 	@Override
 	public int[] getDimensions() {
-		return new int[] {18, 0, 10, 10, 10, 10};
+		return new int[] {4, 0, 2, 2, 1, 1};
 	}
 
 	@Override
@@ -52,8 +52,8 @@ public class MachineORB3000 extends BlockDummyable implements IPersistentInfoPro
 	@Override
 	public void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		super.fillSpace(world, x, y, z, dir, o);
-		MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {18, 0, 10, 10, 20, -20}, this, dir);
-		MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {18, 0, 10, 10, -20, 20}, this, dir);
+		MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {4, 0, 2, 2, 1, -1}, this, dir);
+		MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {4, 0, 2, 2, -1, 1}, this, dir);
 
 		this.makeExtra(world, x + dir.offsetX * o + 1, y, z + dir.offsetZ * o + 2);
 		this.makeExtra(world, x + dir.offsetX * o - 1, y, z + dir.offsetZ * o + 2);
@@ -69,8 +69,8 @@ public class MachineORB3000 extends BlockDummyable implements IPersistentInfoPro
 	protected boolean checkRequirement(World world, int x, int y, int z, ForgeDirection dir, int o) {
 
 		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, getDimensions(), x, y, z, dir)) return false;
-		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {18, 0, 10, 10, 20, -20}, x, y, z, dir)) return false;
-		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {18, 0, 10, 10, -20, 20}, x, y, z, dir)) return false;
+		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {4, 0, 2, 2, 1, -1}, x, y, z, dir)) return false;
+		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, new int[] {4, 0, 2, 2, -1, 1}, x, y, z, dir)) return false;
 		
 		return true;
 	}
