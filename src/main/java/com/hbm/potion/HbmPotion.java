@@ -41,6 +41,7 @@ public class HbmPotion extends Potion {
 	public static HbmPotion stability;
 	public static HbmPotion potionsickness;
 	public static HbmPotion death;
+	public static HbmPotion horny;
 
 	public HbmPotion(int id, boolean isBad, int color) {
 		super(id, isBad, color);
@@ -59,6 +60,7 @@ public class HbmPotion extends Potion {
 		stability = registerPotion(PotionConfig.stabilityID, false, 0xD0D0D0, "potion.hbm_stability", 2, 1);
 		potionsickness = registerPotion(PotionConfig.potionsicknessID, false, 0xff8080, "potion.hbm_potionsickness", 3, 1);
 		death = registerPotion(PotionConfig.deathID, false, 0x111111, "potion.hbm_death", 4, 1);
+		horny = registerPotion(PotionConfig.hornyID, false, 0xff52c8, "potion.hbm_horny", 6, 1);
 	}
 
 	public static HbmPotion registerPotion(int id, boolean isBad, int color, String name, int x, int y) {

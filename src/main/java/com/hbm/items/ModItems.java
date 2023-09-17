@@ -2672,7 +2672,7 @@ public class ModItems {
 				.setTextureName(RefStrings.MODID + ":ingot_c4");
 		ingot_opium = new Item().setUnlocalizedName("ingot_opium").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":ingot_opium");
-		powder_morphine = new Item().setUnlocalizedName("powder_morphine").setCreativeTab(MainRegistry.partsTab)
+		powder_morphine = new ItemPill(0).setUnlocalizedName("powder_morphine").setCreativeTab(MainRegistry.consumableTab)
 				.setTextureName(RefStrings.MODID + ":powder_morphine");
 		ingot_phosphorus = new Item().setUnlocalizedName("ingot_phosphorus").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":ingot_phosphorus");

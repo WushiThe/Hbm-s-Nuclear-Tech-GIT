@@ -1238,6 +1238,8 @@ hbm.key.toggleBack=Toggle Backpack
 hbm.key.toggleHUD=Toggle HUD
 hbm.key.reload=Reload
 
+hbmfluid.pringlesf=Liquid Pringles
+hbmfluid.liquidassets=Liquid Assets
 hbmfluid.acid=Hydrogen Peroxide
 hbmfluid.amat=Antimatter
 hbmfluid.aromatics=Aromatic Hydrocarbons
@@ -4261,6 +4263,7 @@ potion.hbm_radx=Rad-X
 potion.hbm_stability=Stability
 potion.hbm_taint=Tainted
 potion.hbm_telekinesis=! ! !
+potion.hbm_horny=Horny
 
 radar.detectMissiles=Detect Missiles
 radar.detectPlayers=Detect Players

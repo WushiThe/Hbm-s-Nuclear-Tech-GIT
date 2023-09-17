@@ -164,6 +164,7 @@ public class Fluids {
 	public static FluidType OPIUMAL;
 	public static FluidType RESIN;
 	public static FluidType PRINGLESF;
+	public static FluidType LIQUIDASSETS;
 
 	private static final HashMap<Integer, FluidType> idMapping = new HashMap();
 	private static final HashMap<String, FluidType> nameMapping = new HashMap();
@@ -181,6 +182,7 @@ public class Fluids {
 	public static final FT_Delicious DELICIOUS = new FT_Delicious();
 	public static final FT_Leaded LEADED = new FT_Leaded();
 	public static final FT_Horror HORROR = new FT_Horror();
+	public static final FT_Money MONEY = new FT_Money();
 
 	public static void init() {
 		
@@ -328,7 +330,8 @@ public class Fluids {
 		CUM_HOT =				new FluidType("CUM_HOT",			0xdbabab, 0, 1, 0, EnumSymbol.NONE).addTraits(VISCOUS).setTemp(696).addTraits(LIQUID);
 		OPIUMAL =   			new FluidType("OPIUMAL",			0xb5b5b5, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
 		RESIN =   				new FluidType("RESIN",			0xd1f0ff, 1, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
-		PRINGLESF =   				new FluidType("PRINGLESF",			0xd1f0ff, 0, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
+		PRINGLESF =   			new FluidType("PRINGLESF",			0xfcba03, 0, 0, 0, EnumSymbol.NONE).addTraits(VISCOUS).addTraits(LIQUID);
+		LIQUIDASSETS = 			new FluidType("LIQUIDASSETS",			0x149400, 9, 9, 9, EnumSymbol.NONE).addTraits(MONEY).addTraits(LIQUID);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE
@@ -482,6 +485,7 @@ public class Fluids {
 		metaOrder.add(OPIUMAL);
 		metaOrder.add(RESIN);
 		metaOrder.add(PRINGLESF);
+		metaOrder.add(LIQUIDASSETS);
 
 		CHLORINE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 2F, 20, HazardClass.GAS_CHLORINE, false)));
 		PHOSGENE.addTraits(new FT_Toxin().addEntry(new ToxinDirectDamage(ModDamageSource.cloud, 4F, 20, HazardClass.GAS_CHLORINE, false)));

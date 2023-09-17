@@ -68,6 +68,12 @@ public class FluidTraitSimple {
 		}
 	}
 
+	public static class FT_Money extends FluidTrait {
+		@Override public void addInfoHidden(List<String> info) {
+			info.add(EnumChatFormatting.GREEN + "[MONEY]");
+		}
+	}
+
 	public static class FT_NoID extends FluidTrait { }
 	public static class FT_NoContainer extends FluidTrait { }
 }

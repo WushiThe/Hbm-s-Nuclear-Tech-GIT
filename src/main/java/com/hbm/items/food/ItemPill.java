@@ -54,6 +54,10 @@ public class ItemPill extends ItemFood {
 				player.addPotionEffect(new PotionEffect(HbmPotion.death.id, 60 * 60 * 20, 0));
 			}
 
+			if(this == ModItems.powder_morphine) {
+				player.addPotionEffect(new PotionEffect(HbmPotion.horny.id, 60 * 60 * 20, 0));
+			}
+
 			if(this == ModItems.radx) {
 				player.addPotionEffect(new PotionEffect(HbmPotion.radx.id, 3 * 60 * 20, 0));
 			}
