@@ -325,7 +325,13 @@ public class HazardRegistry {
 		HazardSystem.register(nugget_hes, makeData(RADIATION, saf * nugget));
 		HazardSystem.register(billet_hes, makeData(RADIATION, saf * billet));
 		HazardSystem.register(ingot_hes, makeData(RADIATION, saf * ingot));
-		
+
+		HazardSystem.register(ingot_californium252, makeData().addEntry(RADIATION, 23750F).addEntry(HOT, 4F));
+		HazardSystem.register(ingot_californium253, makeData().addEntry(RADIATION, 24000F).addEntry(HOT, 4F));
+		HazardSystem.register(ingot_curium248, makeData(RADIATION, 500F));
+		HazardSystem.register(ingot_einsteinium253, makeData().addEntry(RADIATION, 50000F).addEntry(HOT, 7F));
+		HazardSystem.register(powder_plutonium_oxide, makeData(RADIATION, 22.5F));
+
 		HazardSystem.register(nugget_les, makeData(RADIATION, saf * nugget));
 		HazardSystem.register(billet_les, makeData(RADIATION, saf * billet));
 		HazardSystem.register(ingot_les, makeData(RADIATION, saf * ingot));
@@ -346,6 +352,7 @@ public class HazardRegistry {
 		registerRTGPellet(pellet_rtg_lead, pb209 * rtg, 0, 7F, 50F);
 		registerRTGPellet(pellet_rtg_gold, au198 * rtg, 0, 5F);
 		registerRTGPellet(pellet_rtg_americium, am241 * rtg, 0);
+		registerRTGPellet(pellet_rtg_cf253, pb209 * rtg, 0, 7F);
 		HazardSystem.register(new ItemStack(pellet_rtg_depleted, 1, DepletedRTGMaterial.NEPTUNIUM.ordinal()), makeData(RADIATION, np237 * rtg));
 		
 		HazardSystem.register(pile_rod_uranium, makeData(RADIATION, u * billet * 3));

@@ -2780,6 +2780,15 @@ item.ingot_aluminium.name=Aluminium Ingot
 item.ingot_am_mix.name=Reactor Grade Americium Ingot
 item.ingot_am241.name=Americium-241 Ingot
 item.ingot_am242.name=Americium-242 Ingot
+
+item.ingot_curium248.name=Curium-248 Ingot
+item.ingot_californium252.name=Californium-252 Ingot
+item.powder_plutonium_oxide.name=Plutonium Oxide
+item.rbmk_fuel_cf252.name=Californium-252 RBMK Neutron Source
+item.rbmk_pellet_cf252.name=Californium-252 Neutron Source Pellet
+item.ingot_californium253.name=Californium-253 Ingot
+item.ingot_einsteinium253.name=Einsteinium-253 Ingot
+
 item.ingot_americium_fuel.name=Ingot of Americium Fuel
 item.ingot_arsenic.name=Arsenic Ingot
 item.ingot_asbestos.name=Asbestos Sheet
@@ -3406,6 +3415,11 @@ item.pellet_rtg_depleted.neptunium.name=Decayed Neptunium RTG Pellet
 item.pellet_rtg_depleted.mercury.name=Decayed Mercury RTG Pellet
 item.pellet_rtg_depleted.nickel.name=Decayed Nickel RTG Pellet
 item.pellet_rtg_depleted.zirconium.name=Decayed Zirconium RTG Pellet
+
+item.pellet_rtg_depleted.einstein.name=Decayed Einsteinium-235 RTG Pellet
+item.pellet_rtg_cf253.name=Californium-253 RTG Pellet
+item.pellet_rtg_cf253.desc=Powerful RTG with low half-life, mainly used to obtain Einsteinium.
+
 item.pellet_rtg_lead.name=Lead-209 RTG Pellet
 item.pellet_rtg_lead.desc=Exposure will result in immediate death.
 item.pellet_rtg_gold.name=Gold-198 RTG Pellet

@@ -100,6 +100,10 @@ public class CyclotronRecipes extends SerializableRecipe {
 		makeRecipe(new ComparableStack(ModItems.part_plutonium), new ComparableStack(ModItems.powder_unobtainium), new ItemStack(ModItems.powder_daffergon), plA);
 		makeRecipe(new ComparableStack(ModItems.part_plutonium), new ComparableStack(ModItems.cell_antimatter), new ItemStack(ModItems.cell_anti_schrabidium), 0);
 		/// PLUTONIUM END ///
+
+		/// FORK RECIPES START///
+		makeRecipe(new ComparableStack(ModItems.pellet_charged), new ComparableStack(ModItems.ingot_californium252), new ItemStack(ModItems.ingot_californium253), 1000);
+		/// FORK RECIPES END///
 		
 		///TODO: fictional elements
 	}

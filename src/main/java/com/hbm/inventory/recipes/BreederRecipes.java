@@ -36,6 +36,8 @@ public class BreederRecipes extends SerializableRecipe {
 		setRecipe(BreedingRodType.RGP, BreedingRodType.WASTE, 200);
 		
 		recipes.put(new ComparableStack(ModItems.meteorite_sword_etched), new BreederRecipe(new ItemStack(ModItems.meteorite_sword_bred), 1000));
+		recipes.put(new ComparableStack(ModItems.powder_plutonium_oxide), new BreederRecipe(new ItemStack(ModItems.ingot_curium248), 750));
+		recipes.put(new ComparableStack(ModItems.ingot_curium248), new BreederRecipe(new ItemStack(ModItems.ingot_californium252), 1000));
 	}
 	
 	/** Sets recipes for single, dual, and quad rods **/
