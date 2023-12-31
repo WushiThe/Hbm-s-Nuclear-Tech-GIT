@@ -5118,6 +5118,7 @@ tile.machine_electrolyser.name=Electrolysis Machine
 tile.machine_epress.name=Electric Press
 tile.machine_excavator.name=Large Mining Drill
 tile.machine_exposure_chamber.name=Exposure Chamber
+tile.machine_qcomputer.name=Quantum Computer
 tile.machine_fel.name=FEL
 tile.machine_fensu.name=FEnSU
 tile.machine_flare.name=Flare Stack

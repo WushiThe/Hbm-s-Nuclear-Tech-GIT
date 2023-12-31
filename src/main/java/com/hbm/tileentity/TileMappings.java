@@ -330,6 +330,7 @@ public class TileMappings {
 		put(TileEntityMachineChemfac.class, "tileentity_chemfac");
 		
 		put(TileEntityMachineOilWell.class, "tileentity_derrick");
+		put(TileEntityQComputer.class, "tileentity_qcomputer");
 		put(TileEntityMachinePumpjack.class, "tileentity_machine_pumpjack");
 		put(TileEntityMachineFrackingTower.class, "tileentity_fracking_tower");
 		put(TileEntityMachineGasFlare.class, "tileentity_gasflare");
