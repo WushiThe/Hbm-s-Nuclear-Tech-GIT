@@ -3,6 +3,7 @@ package com.hbm.blocks.rail;
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
+import com.hbm.blocks.rail.RailStandardSwitch.TileEntityRailSwitch;
 import com.hbm.items.ModItems;
 import com.hbm.lib.Library;
 import com.hbm.lib.RefStrings;
@@ -16,10 +17,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
@@ -28,11 +25,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.obj.WavefrontObject;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class RailStandardSwitch extends BlockRailWaypointSystem implements IRenderRail {
+public class RailStandardSwitchFlipped extends BlockRailWaypointSystem implements IRenderRail {
 
 	@SideOnly(Side.CLIENT) private IIcon iconSign;
 
-	public RailStandardSwitch() {
+	public RailStandardSwitchFlipped() {
 		super(Material.iron);
 		
 		RailDef main = new RailDef("main");
@@ -46,22 +43,22 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		main.nodes.add(Vec3.createVectorHelper(7.5, 0.1875, 0.5));
 		main.nodes.add(Vec3.createVectorHelper(8.5, 0.1875, 0.5));
 
-		side.nodes.add(Vec3.createVectorHelper(-8.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-7.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-6.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-5.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-4.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-3.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-2.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-1.5, 0.1875, 4.5));
-		side.nodes.add(Vec3.createVectorHelper(-0.5, 0.1875, 4.25));
-		side.nodes.add(Vec3.createVectorHelper(0.5, 0.1875, 3.9375));
-		side.nodes.add(Vec3.createVectorHelper(1.5, 0.1875, 3.375));
-		side.nodes.add(Vec3.createVectorHelper(2.5, 0.1875, 2.4625));
-		side.nodes.add(Vec3.createVectorHelper(3.5, 0.1875, 1.75));
-		side.nodes.add(Vec3.createVectorHelper(4.5, 0.1875, 1.1875));
-		side.nodes.add(Vec3.createVectorHelper(5.5, 0.1875, 0.875));
-		side.nodes.add(Vec3.createVectorHelper(6.5, 0.1875, 0.625));
+		side.nodes.add(Vec3.createVectorHelper(-8.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-7.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-6.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-5.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-4.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-3.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-2.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-1.5, 0.1875, -3.5));
+		side.nodes.add(Vec3.createVectorHelper(-0.5, 0.1875, -3.25));
+		side.nodes.add(Vec3.createVectorHelper(0.5, 0.1875, -2.9375));
+		side.nodes.add(Vec3.createVectorHelper(1.5, 0.1875, -2.375));
+		side.nodes.add(Vec3.createVectorHelper(2.5, 0.1875, -1.4625));
+		side.nodes.add(Vec3.createVectorHelper(3.5, 0.1875, -0.75));
+		side.nodes.add(Vec3.createVectorHelper(4.5, 0.1875, -0.1875));
+		side.nodes.add(Vec3.createVectorHelper(5.5, 0.1875, 0.175));
+		side.nodes.add(Vec3.createVectorHelper(6.5, 0.1875, 0.375));
 		side.nodes.add(Vec3.createVectorHelper(7.5, 0.1875, 0.5));
 		side.nodes.add(Vec3.createVectorHelper(8.5, 0.1875, 0.5));
 	}
@@ -70,7 +67,7 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		super.registerBlockIcons(iconRegister);
-		this.iconSign = iconRegister.registerIcon(RefStrings.MODID + ":rail_switch_sign");
+		this.iconSign = iconRegister.registerIcon(RefStrings.MODID + ":rail_switch_sign_flipped");
 	}
 
 	@Override
@@ -180,7 +177,7 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		
 		BlockDummyable.safeRem = true;
 		
-		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
+		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 		dir = dir.getOpposite();
 
 		int dX = dir.offsetX;
@@ -188,12 +185,12 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		int rX = rot.offsetX;
 		int rZ = rot.offsetZ;
 
-		for(int i = 0; i < 4; i++) world.setBlock(x + dX * (2 + i) + rX * 2, y, z + dZ * (2 + i) + rZ * 2, this, rot.ordinal(), 3);
-		for(int i = 0; i < 2; i++) world.setBlock(x + dX * (4 + i) + rX * 3, y, z + dZ * (4 + i) + rZ * 3, this, rot.ordinal(), 3);
-		world.setBlock(x + dX * 5 + rX * 4, y, z + dZ * 5 + rZ * 4, this, rot.ordinal(), 3);
-		for(int j = 0; j < 2; j++) for(int i = 0; i < 2; i++) world.setBlock(x + dX * (6 + j) + rX * (3 + i), y, z + dZ * (6 + j) + rZ * (3 + i), this, dir.ordinal(), 3);
-		world.setBlock(x + dX * 7 + rX * 5, y, z + dZ * 7 + rZ * 5, this, rot.ordinal(), 3);
-		for(int j = 0; j < 7; j++) for(int i = 0; i < 2; i++) world.setBlock(x + dX * (8 + j) + rX * (4 + i), y, z + dZ * (8 + j) + rZ * (4 + i), this, dir.ordinal(), 3);
+		for(int i = 0; i < 4; i++) world.setBlock(x + dX * (2 + i) + rX * 1, y, z + dZ * (2 + i) + rZ * 1, this, rot.ordinal(), 3);
+		for(int i = 0; i < 2; i++) world.setBlock(x + dX * (4 + i) + rX * 2, y, z + dZ * (4 + i) + rZ * 2, this, rot.ordinal(), 3);
+		world.setBlock(x + dX * 5 + rX * 3, y, z + dZ * 5 + rZ * 3, this, rot.ordinal(), 3);
+		for(int j = 0; j < 2; j++) for(int i = 0; i < 2; i++) world.setBlock(x + dX * (6 + j) + rX * (2 + i), y, z + dZ * (6 + j) + rZ * (2 + i), this, dir.ordinal(), 3);
+		world.setBlock(x + dX * 7 + rX * 4, y, z + dZ * 7 + rZ * 4, this, rot.ordinal(), 3);
+		for(int j = 0; j < 7; j++) for(int i = 0; i < 2; i++) world.setBlock(x + dX * (8 + j) + rX * (3 + i), y, z + dZ * (8 + j) + rZ * (3 + i), this, dir.ordinal(), 3);
 		
 		BlockDummyable.safeRem = false;
 	}
@@ -201,11 +198,11 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void renderInventory(Tessellator tessellator, Block block, int metadata) {
-		GL11.glTranslated(0, -0.0625, -0.1875);
+		GL11.glTranslated(0, -0.0625, 0);
 		GL11.glRotated(90, 0, 1, 0);
 		GL11.glScaled(0.1, 0.1, 0.1);
 		tessellator.startDrawingQuads();
-		ObjUtil.renderPartWithIcon((WavefrontObject) ResourceManager.rail_standard_switch, "Rail", this.blockIcon, tessellator, 0, false);
+		ObjUtil.renderPartWithIcon((WavefrontObject) ResourceManager.rail_standard_switch_flipped, "Rail", this.blockIcon, tessellator, 0, false);
 		tessellator.draw();
 	}
 
@@ -222,13 +219,13 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		if(meta == 14) tessellator.addTranslation(0F, 0F, -0.5F);
 		if(meta == 15) tessellator.addTranslation(0F, 0F, 0.5F);
 		tessellator.addTranslation(x + 0.5F, y, z + 0.5F);
-		ObjUtil.renderPartWithIcon((WavefrontObject) ResourceManager.rail_standard_switch, "Rail", this.blockIcon, tessellator, rotation, true);
+		ObjUtil.renderPartWithIcon((WavefrontObject) ResourceManager.rail_standard_switch_flipped, "Rail", this.blockIcon, tessellator, rotation, true);
 		
 		TileEntity tile = world.getTileEntity(x, y, z);
 		
 		if(tile instanceof TileEntityRailSwitch) {
 			TileEntityRailSwitch sw = (TileEntityRailSwitch) tile;
-			ObjUtil.renderPartWithIcon((WavefrontObject) ResourceManager.rail_standard_switch, sw.isSwitched ? "SignTurn" : "SignStraight", this.iconSign, tessellator, rotation, true);
+			ObjUtil.renderPartWithIcon((WavefrontObject) ResourceManager.rail_standard_switch_flipped, sw.isSwitched ? "SignTurn" : "SignStraight", this.iconSign, tessellator, rotation, true);
 		}
 		
 		tessellator.addTranslation(-x - 0.5F, -y, -z - 0.5F);
@@ -236,36 +233,5 @@ public class RailStandardSwitch extends BlockRailWaypointSystem implements IRend
 		if(meta == 13) tessellator.addTranslation(0.5F, 0F, 0F);
 		if(meta == 14) tessellator.addTranslation(0F, 0F, 0.5F);
 		if(meta == 15) tessellator.addTranslation(0F, 0F, -0.5F);
-	}
-	
-	public static class TileEntityRailSwitch extends TileEntity {
-		public boolean isSwitched = false;
-		
-		@Override public boolean canUpdate() { return false; }
-
-		@Override
-		public Packet getDescriptionPacket() {
-			NBTTagCompound nbt = new NBTTagCompound();
-			this.writeToNBT(nbt);
-			return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbt);
-		}
-		
-		@Override
-		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-			this.readFromNBT(pkt.func_148857_g());
-			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		}
-
-		@Override
-		public void readFromNBT(NBTTagCompound nbt) {
-			super.readFromNBT(nbt);
-			this.isSwitched = nbt.getBoolean("isSwitched");
-		}
-
-		@Override
-		public void writeToNBT(NBTTagCompound nbt) {
-			super.writeToNBT(nbt);
-			nbt.setBoolean("isSwitched", this.isSwitched);
-		}
 	}
 }
