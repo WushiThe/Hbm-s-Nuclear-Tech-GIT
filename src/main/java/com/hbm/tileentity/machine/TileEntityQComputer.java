@@ -3,6 +3,8 @@ package com.hbm.tileentity.machine;
 import java.util.List;
 
 import com.hbm.blocks.ModBlocks;
+import com.hbm.inventory.fluid.Fluids;
+import com.hbm.inventory.fluid.tank.FluidTank;
 import com.hbm.lib.Library;
 import com.hbm.tileentity.IGUIProvider;
 import com.hbm.tileentity.TileEntityMachineBase;
@@ -14,12 +16,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import api.hbm.fluid.IFluidStandardTransceiver;
 
-public class TileEntityQComputer extends TileEntityMachineBase implements IGUIProvider, IEnergyUser {
 
+public class TileEntityQComputer extends TileEntityMachineBase implements IGUIProvider, IEnergyUser, IFluidStandardTransceiver {
+
+    public FluidTank[] tanks;
     public long power;
     public static final long maxPower = 1_000_000_000;
 
@@ -43,6 +49,8 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
          * 6-7: Upgrades
          */
         super(8);
+        tanks[0] = new FluidTank(Fluids.HELIUM4, 50000, 0);
+        tanks[1] = new FluidTank(Fluids.HELIUM4, 50000, 0);
     }
 
     @Override
@@ -54,6 +62,27 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
     public void updateEntity() {
 
         if (!worldObj.isRemote) {
+
+            this.updateConnections();
+
+            if(hasPower() && hasEnoughWater() && tanks[1].getMaxFill() > tanks[1].getFill()) {
+                int convert = Math.min(tanks[1].getMaxFill(), tanks[0].getFill()) / 50;
+                convert = Math.min(convert, tanks[1].getMaxFill() - tanks[1].getFill());
+
+                tanks[0].setFill(tanks[0].getFill() - convert * 50); //dividing first, then multiplying, will remove any rounding issues
+                tanks[1].setFill(tanks[1].getFill() + convert);
+                power -= this.getMaxPower() / 20;
+            }
+
+            this.subscribeToAllAround(tanks[0].getTankType(), this);
+            this.sendFluidToAll(tanks[1], this);
+
+            NBTTagCompound data = new NBTTagCompound();
+            data.setLong("power", power);
+            tanks[0].writeToNBT(data, "water");
+            tanks[1].writeToNBT(data, "heavyWater");
+
+            this.networkPack(data, 50);
 
             this.isOn = false;
             this.power = Library.chargeTEFromItems(slots, 5, power, maxPower);
@@ -94,6 +123,29 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
         }
 
         return bb;
+    }
+    protected void updateConnections() {
+
+        for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
+            this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
+    }
+    public boolean hasPower() {
+        return power >= this.getMaxPower() / 20;
+    }
+    public boolean hasEnoughWater() {
+        return tanks[0].getFill() >= 100;
+    }
+    @Override
+    public FluidTank[] getSendingTanks() {
+        return new FluidTank[] { tanks[1] };
+    }
+    @Override
+    public FluidTank[] getReceivingTanks() {
+        return new FluidTank[] { tanks[0] };
+    }
+    @Override
+    public FluidTank[] getAllTanks() {
+        return tanks;
     }
 
     @Override

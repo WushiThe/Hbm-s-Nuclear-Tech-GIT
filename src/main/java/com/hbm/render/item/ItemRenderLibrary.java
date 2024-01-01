@@ -1188,7 +1188,19 @@ public class ItemRenderLibrary {
 				bindTexture(ResourceManager.deuterium_tower_tex); ResourceManager.deuterium_tower.renderAll();
 				GL11.glShadeModel(GL11.GL_FLAT);
 			}
+
 		});
+		renderers.put(Item.getItemFromBlock(ModBlocks.machine_qcomputer), new ItemRenderBase( ) {
+			public void renderInventory() {
+				GL11.glTranslated(0, -2, 0);
+				GL11.glScaled(2.8, 2.8, 2.8);
+			}
+			public void renderCommon() {
+				GL11.glScaled(0.75, 0.75, 0.75);
+				GL11.glShadeModel(GL11.GL_SMOOTH);
+				bindTexture(ResourceManager.machine_quantum_computer_tex); ResourceManager.machine_quantum_computer.renderAll();
+				GL11.glShadeModel(GL11.GL_FLAT);
+			}});
 		
 		renderers.put(Item.getItemFromBlock(ModBlocks.reactor_zirnox), new ItemRenderBase( ) {
 			public void renderInventory() {
