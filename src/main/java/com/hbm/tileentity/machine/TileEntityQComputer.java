@@ -23,9 +23,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import api.hbm.fluid.IFluidStandardTransceiver;
 
 
-public class TileEntityQComputer extends TileEntityMachineBase implements IGUIProvider, IEnergyUser, IFluidStandardTransceiver {
+public class TileEntityQComputer extends TileEntityMachineBase implements IGUIProvider, IEnergyUser {
 
-    public FluidTank[] tanks;
     public long power;
     public static final long maxPower = 1_000_000_000;
 
@@ -49,8 +48,6 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
          * 6-7: Upgrades
          */
         super(8);
-        tanks[0] = new FluidTank(Fluids.HELIUM4, 50000, 0);
-        tanks[1] = new FluidTank(Fluids.HELIUM4, 50000, 0);
     }
 
     @Override
@@ -62,30 +59,6 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
     public void updateEntity() {
 
         if (!worldObj.isRemote) {
-
-            this.updateConnections();
-
-            if(hasPower() && hasEnoughWater() && tanks[1].getMaxFill() > tanks[1].getFill()) {
-                int convert = Math.min(tanks[1].getMaxFill(), tanks[0].getFill()) / 50;
-                convert = Math.min(convert, tanks[1].getMaxFill() - tanks[1].getFill());
-
-                tanks[0].setFill(tanks[0].getFill() - convert * 50); //dividing first, then multiplying, will remove any rounding issues
-                tanks[1].setFill(tanks[1].getFill() + convert);
-                power -= this.getMaxPower() / 20;
-            }
-
-            this.subscribeToAllAround(tanks[0].getTankType(), this);
-            this.sendFluidToAll(tanks[1], this);
-
-            NBTTagCompound data = new NBTTagCompound();
-            data.setLong("power", power);
-            tanks[0].writeToNBT(data, "water");
-            tanks[1].writeToNBT(data, "heavyWater");
-
-            this.networkPack(data, 50);
-
-            this.isOn = false;
-            this.power = Library.chargeTEFromItems(slots, 5, power, maxPower);
 
             if (worldObj.getTotalWorldTime() % 20 == 0) {
                 for (DirPos pos : getConPos())
@@ -128,24 +101,6 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
 
         for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
             this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);
-    }
-    public boolean hasPower() {
-        return power >= this.getMaxPower() / 20;
-    }
-    public boolean hasEnoughWater() {
-        return tanks[0].getFill() >= 100;
-    }
-    @Override
-    public FluidTank[] getSendingTanks() {
-        return new FluidTank[] { tanks[1] };
-    }
-    @Override
-    public FluidTank[] getReceivingTanks() {
-        return new FluidTank[] { tanks[0] };
-    }
-    @Override
-    public FluidTank[] getAllTanks() {
-        return tanks;
     }
 
     @Override
