@@ -632,6 +632,7 @@ commands.satellite.satellite_descended=Satellite successfully descended.
 commands.satellite.satellite_orbited=Satellite launched.
 commands.satellite.should_be_run_as_player=This command should be run by a player!
 
+container.qcomputer=Quantum Computer
 container.amsBase=AMS Base (Deco)
 container.amsEmitter=AMS Emitter (Deco)
 container.amsLimiter=AMS Stabilizer (Deco)
