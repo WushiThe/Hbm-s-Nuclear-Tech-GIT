@@ -1382,6 +1382,7 @@ hbmpseudofluid.mud=Poisonous Sludge Gas
 
 hbmmat.actinium227=Actinium-227
 hbmmat.advancedalloy=Advanced Alloy
+hbmmat.superconductor=Superconductor
 hbmmat.aluminum=Aluminium
 hbmmat.americiumrg=Reactor-Grade Americium
 hbmmat.americium241=Americium-241
@@ -2746,6 +2747,7 @@ item.inf_water.name=Infinite Water Tank
 item.inf_water_mk2.name=Heavy Infinite Water Tank
 item.ingot_actinium.name=Actinium-227 Ingot
 item.ingot_advanced_alloy.name=Advanced Alloy Ingot
+item.ingot_superconductor.name=Superconductor Ingot
 item.ingot_aluminium.name=Aluminium Ingot
 item.ingot_am_mix.name=Reactor Grade Americium Ingot
 item.ingot_am241.name=Americium-241 Ingot

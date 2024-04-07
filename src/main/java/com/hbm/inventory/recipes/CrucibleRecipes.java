@@ -79,6 +79,10 @@ public class CrucibleRecipes extends SerializableRecipe {
 		recipes.add(new CrucibleRecipe(2, "crucible.aa", 2, new ItemStack(ModItems.ingot_advanced_alloy))
 				.inputs(new MaterialStack(Mats.MAT_STEEL, n), new MaterialStack(Mats.MAT_MINGRADE, n))
 				.outputs(new MaterialStack(Mats.MAT_ALLOY, n * 2)));
+
+		recipes.add(new CrucibleRecipe(14, "crucible.super", 2, new ItemStack(ModItems.ingot_superconductor))
+				.inputs(new MaterialStack(Mats.MAT_TITANIUM, n), new MaterialStack(Mats.MAT_NIOBIUM, n))
+				.outputs(new MaterialStack(Mats.MAT_SUPER, n * 2)));
 		
 		recipes.add(new CrucibleRecipe(3, "crucible.hss", 9, new ItemStack(ModItems.ingot_dura_steel))
 				.inputs(new MaterialStack(Mats.MAT_STEEL, n * 5), new MaterialStack(Mats.MAT_TUNGSTEN, n * 3), new MaterialStack(Mats.MAT_COBALT, n * 1))

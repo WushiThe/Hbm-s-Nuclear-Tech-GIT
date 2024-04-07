@@ -113,6 +113,7 @@ public class Mats {
 	public static final NTMMaterial MAT_STEEL		= makeSmeltable(_AS + 0,	STEEL,		0xAFAFAF, 0x0F0F0F, 0x4A4A4A).setShapes(DUSTTINY, INGOT, DUST, PLATE, CASTPLATE, BLOCK);
 	public static final NTMMaterial MAT_MINGRADE	= makeSmeltable(_AS + 1,	MINGRADE,	0xFFBA7D, 0xAF1700, 0xE44C0F).setShapes(WIRE, INGOT, DUST, BLOCK);
 	public static final NTMMaterial MAT_ALLOY		= makeSmeltable(_AS + 2,	ALLOY,		0xFF8330, 0x700000, 0xFF7318).setShapes(WIRE, INGOT, DUST, PLATE, CASTPLATE, BLOCK);
+	public static final NTMMaterial MAT_SUPER		= makeSmeltable(_AS + 15, SUPER,	0xAE83AB, 0x372835, 0xAE5E52).setShapes(WIRE, INGOT, CASTPLATE);
 	public static final NTMMaterial MAT_DURA		= makeSmeltable(_AS + 3,	DURA,		0x183039, 0x030B0B, 0x376373).setShapes(INGOT, DUST, BLOCK);
 	public static final NTMMaterial MAT_SATURN		= makeSmeltable(_AS + 4,	BIGMT,		0x4DA3AF, 0x00000C, 0x4DA3AF).setShapes(INGOT, DUST, BLOCK);
 	public static final NTMMaterial MAT_DESH		= makeSmeltable(_AS + 12,	DESH,		0xFF6D6D, 0x720000, 0xF22929).setShapes(INGOT, DUST, CASTPLATE, BLOCK);

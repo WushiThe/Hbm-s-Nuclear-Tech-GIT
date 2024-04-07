@@ -136,6 +136,7 @@ public class ModItems {
 	public static Item nugget_americium_fuel;
 	public static Item nugget_schrabidium_fuel;
 	public static Item ingot_advanced_alloy;
+	public static Item ingot_superconductor;
 	public static Item ingot_tcalloy;
 	public static Item ingot_cdalloy;
 	public static Item lithium;
@@ -574,6 +575,7 @@ public class ModItems {
 	public static Item wire_gold;
 	public static Item wire_schrabidium;
 	public static Item wire_advanced_alloy;
+	public static Item wire_superconductor;
 	public static Item coil_advanced_alloy;
 	public static Item coil_advanced_torus;
 	public static Item wire_magnetized_tungsten;
@@ -2621,6 +2623,8 @@ public class ModItems {
 				.setCreativeTab(MainRegistry.partsTab).setTextureName(RefStrings.MODID + ":nugget_schrabidium_fuel");
 		ingot_advanced_alloy = new Item().setUnlocalizedName("ingot_advanced_alloy")
 				.setCreativeTab(MainRegistry.partsTab).setTextureName(RefStrings.MODID + ":ingot_advanced_alloy");
+		ingot_superconductor = new Item().setUnlocalizedName("ingot_superconductor")
+				.setCreativeTab(MainRegistry.partsTab).setTextureName(RefStrings.MODID + ":ingot_superconductor");
 		ingot_tcalloy = new Item().setUnlocalizedName("ingot_tcalloy").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":ingot_tcalloy");
 		ingot_cdalloy = new Item().setUnlocalizedName("ingot_cdalloy").setCreativeTab(MainRegistry.partsTab)
@@ -2680,6 +2684,8 @@ public class ModItems {
 				.setTextureName(RefStrings.MODID + ":ingot_phosphorus");
 		wire_advanced_alloy = new Item().setUnlocalizedName("wire_advanced_alloy").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":wire_advanced_alloy");
+		wire_superconductor = new Item().setUnlocalizedName("wire_superconductor").setCreativeTab(MainRegistry.partsTab)
+				.setTextureName(RefStrings.MODID + ":wire_superconductor");
 		coil_advanced_alloy = new Item().setUnlocalizedName("coil_advanced_alloy").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":coil_advanced_alloy");
 		coil_advanced_torus = new Item().setUnlocalizedName("coil_advanced_torus").setCreativeTab(MainRegistry.partsTab)
@@ -8151,6 +8157,7 @@ public class ModItems {
 		GameRegistry.registerItem(ingot_copper, ingot_copper.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_red_copper, ingot_red_copper.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_advanced_alloy, ingot_advanced_alloy.getUnlocalizedName());
+		GameRegistry.registerItem(ingot_superconductor, ingot_superconductor.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_tungsten, ingot_tungsten.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_aluminium, ingot_aluminium.getUnlocalizedName());
 		GameRegistry.registerItem(ingot_steel, ingot_steel.getUnlocalizedName());
@@ -8606,6 +8613,7 @@ public class ModItems {
 		GameRegistry.registerItem(wire_tungsten, wire_tungsten.getUnlocalizedName());
 		GameRegistry.registerItem(wire_red_copper, wire_red_copper.getUnlocalizedName());
 		GameRegistry.registerItem(wire_advanced_alloy, wire_advanced_alloy.getUnlocalizedName());
+		GameRegistry.registerItem(wire_superconductor, wire_superconductor.getUnlocalizedName());
 		GameRegistry.registerItem(wire_gold, wire_gold.getUnlocalizedName());
 		GameRegistry.registerItem(wire_schrabidium, wire_schrabidium.getUnlocalizedName());
 		GameRegistry.registerItem(wire_magnetized_tungsten, wire_magnetized_tungsten.getUnlocalizedName());
