@@ -519,6 +519,8 @@ public class ModItems {
 	public static Item powder_impure_osmiridium;
 	public static Item powder_borax;
 	public static Item powder_chlorocalcite;
+	public static Item powder_shit;
+	public static Item normie;
 
 	public static Item powder_lanthanium;
 	public static Item powder_actinium;
@@ -3400,6 +3402,10 @@ public class ModItems {
 				.setTextureName(RefStrings.MODID + ":powder_coltan_ore");
 		powder_coltan = new Item().setUnlocalizedName("powder_coltan").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":powder_coltan");
+		powder_shit = new Item().setUnlocalizedName("powder_shit").setCreativeTab(MainRegistry.partsTab)
+				.setTextureName(RefStrings.MODID + ":powder_shit");
+		normie = new Item().setUnlocalizedName("normie").setCreativeTab(MainRegistry.partsTab)
+				.setTextureName(RefStrings.MODID + ":normie");
 		powder_tektite = new Item().setUnlocalizedName("powder_tektite").setCreativeTab(MainRegistry.partsTab)
 				.setTextureName(RefStrings.MODID + ":powder_tektite");
 		powder_paleogenite = new Item().setUnlocalizedName("powder_paleogenite").setCreativeTab(MainRegistry.partsTab)
@@ -8336,6 +8342,8 @@ public class ModItems {
 		GameRegistry.registerItem(powder_cadmium, powder_cadmium.getUnlocalizedName());
 		GameRegistry.registerItem(powder_coltan_ore, powder_coltan_ore.getUnlocalizedName());
 		GameRegistry.registerItem(powder_coltan, powder_coltan.getUnlocalizedName());
+		GameRegistry.registerItem(powder_shit, powder_shit.getUnlocalizedName());
+		GameRegistry.registerItem(normie, normie.getUnlocalizedName());
 		GameRegistry.registerItem(powder_tantalium, powder_tantalium.getUnlocalizedName());
 		GameRegistry.registerItem(powder_tektite, powder_tektite.getUnlocalizedName());
 		GameRegistry.registerItem(powder_paleogenite, powder_paleogenite.getUnlocalizedName());

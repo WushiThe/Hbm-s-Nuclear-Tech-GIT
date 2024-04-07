@@ -311,6 +311,9 @@ public class AssemblerRecipes {
 						new ComparableStack(ModBlocks.det_nuke, 3), new OreDictStack(U238.block(), 24),
 						new ComparableStack(ModItems.circuit_tantalium, 5) },
 				600);
+		makeRecipe(new ComparableStack(ModItems.normie, 1),
+				new AStack[] { new ComparableStack(ModItems.powder_shit, 128), new ComparableStack(ModBlocks.block_dineutronium, 12) },
+				300);
 		makeRecipe(new ComparableStack(ModItems.warhead_thermo_endo, 1),
 				new AStack[] { new ComparableStack(ModBlocks.therm_endo, 2), new OreDictStack(TI.plate(), 12),
 						new OreDictStack(STEEL.plate(), 6), },
