@@ -46,7 +46,7 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
     public static final int consumptionBase = 1_000;
     public int consumption = consumptionBase;
     public long demand = 1000000;
-    public boolean isOn = false;
+    public boolean isProgressing;
 
     public TileEntityQComputer() {
         /*
@@ -74,6 +74,8 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
 
         if (!worldObj.isRemote) {
 
+            this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
+
             this.updateStandardConnections(worldObj, xCoord, yCoord, zCoord);
 
             this.subscribeToAllAround(tanks[0].getTankType(), this);
@@ -81,16 +83,6 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
 
             tanks[0].setType(0, 0, slots);
             tanks[1].setType(0, 0, slots);
-
-            if(isOn) {
-
-                //i.e. 50,000,000 HE = 10,000 SPK
-                //1 SPK = 5,000HE
-
-                if (power >= demand) {
-                    power -= demand;
-                }
-            }
 
             if (worldObj.getTotalWorldTime() % 20 == 0) {
                 for (DirPos pos : getConPos())
@@ -238,14 +230,15 @@ public class TileEntityQComputer extends TileEntityMachineBase implements IGUIPr
     }
 
     @Override
+    public void setPower(long power) {
+        this.power = power;
+    }
+
+    @Override
     public long getMaxPower() {
         return this.maxPower;
     }
 
-    @Override
-    public void setPower(long power) {
-        this.power = power;
-    }
 
     @Override
     public Container provideContainer(int ID, EntityPlayer player, World world, int x, int y, int z) {
