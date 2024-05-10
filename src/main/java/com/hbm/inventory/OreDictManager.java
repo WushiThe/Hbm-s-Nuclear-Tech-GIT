@@ -369,8 +369,8 @@ public class OreDictManager {
 		BAKELITE															.ingot(ingot_bakelite)												.dust(powder_bakelite)											.block(block_bakelite);
 		RUBBER																.ingot(ingot_rubber)																												.block(block_rubber);
 		//PET																	.ingot(ingot_pet);
-		PC																	.ingot(ingot_pc);
-		PVC																	.ingot(ingot_pvc);
+		PC																	.ingot(ingot_pc)																													.block(block_pc);
+		PVC																	.ingot(ingot_pvc)																													.block(block_pvc);
 		MAGTUNG																.ingot(ingot_magnetized_tungsten)									.dust(powder_magnetized_tungsten)								.block(block_magnetized_tungsten);
 		CMB																	.ingot(ingot_combine_steel)											.dust(powder_combine_steel)		.plate(plate_combine_steel)		.block(block_combine_steel);
 		DESH		.nugget(nugget_desh)									.ingot(ingot_desh)													.dust(powder_desh)												.block(block_desh);
