@@ -213,7 +213,6 @@ public class ModBlocks {
 	public static Block block_advanced_alloy;
 	public static Block block_magnetized_tungsten;
 	public static Block block_combine_steel;
-	public static Block block_mud;
 	public static Block block_desh;
 	public static Block block_dura_steel;
 	public static Block block_starmetal;
@@ -462,7 +461,6 @@ public class ModBlocks {
 	public static Block sand_gold;
 	public static Block sand_gold198;
 	public static Block ash_digamma;
-	public static Block brick_ash;
 	public static Block glass_boron;
 	public static Block glass_lead;
 	public static Block glass_uranium;
@@ -501,7 +499,6 @@ public class ModBlocks {
 	public static Block stone_cracked;
 	public static Block burning_earth;
 	public static Block tektite;
-	public static Block brick_tektite;
 	public static Block ore_tektite_osmiridium;
 	public static Block impact_dirt;
 	
@@ -1409,7 +1406,6 @@ public class ModBlocks {
 		block_advanced_alloy = new BlockBeaconable(Material.iron).setBlockName("block_advanced_alloy").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + ":block_advanced_alloy");
 		block_magnetized_tungsten = new BlockBeaconable(Material.iron).setBlockName("block_magnetized_tungsten").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(75.0F).setBlockTextureName(RefStrings.MODID + ":block_magnetized_tungsten");
 		block_combine_steel = new BlockBeaconable(Material.iron).setBlockName("block_combine_steel").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + ":block_combine_steel");
-		block_mud = new BlockBeaconable(Material.rock).setBlockName("block_mud").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypePiston).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":block_mud");
 		block_desh = new BlockBeaconable(Material.iron).setBlockName("block_desh").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(300.0F).setBlockTextureName(RefStrings.MODID + ":block_desh");
 		block_dura_steel = new BlockBeaconable(Material.iron).setBlockName("block_dura_steel").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":block_dura_steel");
 		block_starmetal = new BlockBeaconable(Material.iron).setBlockName("block_starmetal").setCreativeTab(MainRegistry.blockTab).setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(400.0F).setBlockTextureName(RefStrings.MODID + ":block_starmetal");
@@ -1533,8 +1529,6 @@ public class ModBlocks {
 		cmb_brick_reinforced = new BlockGeneric(Material.rock).setBlockName("cmb_brick_reinforced").setCreativeTab(MainRegistry.blockTab).setHardness(25.0F).setResistance(50000.0F).setBlockTextureName(RefStrings.MODID + ":cmb_brick_reinforced");
 		brick_asbestos = new BlockOutgas(Material.rock, true, 5, true).setBlockName("brick_asbestos").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(1000.0F).setBlockTextureName(RefStrings.MODID + ":brick_asbestos");
 		brick_fire = new BlockGeneric(Material.rock).setBlockName("brick_fire").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(35.0F).setBlockTextureName(RefStrings.MODID + ":brick_fire");
-		brick_tektite = new BlockGeneric(Material.rock).setBlockName("brick_tektite").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(80.0F).setBlockTextureName(RefStrings.MODID + ":brick_tektite");
-		brick_ash = new BlockGeneric(Material.rock).setBlockName("brick_ash").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(80.0F).setBlockTextureName(RefStrings.MODID + ":brick_ash");
 
 		ducrete_smooth = new BlockGeneric(Material.rock).setBlockName("ducrete_smooth").setCreativeTab(MainRegistry.blockTab).setHardness(20.0F).setResistance(500.0F).setBlockTextureName(RefStrings.MODID + ":ducrete");
 		ducrete = new BlockGeneric(Material.rock).setBlockName("ducrete").setCreativeTab(MainRegistry.blockTab).setHardness(20.0F).setResistance(500.0F).setBlockTextureName(RefStrings.MODID + ":ducrete_tile");
@@ -2597,7 +2591,6 @@ public class ModBlocks {
 		GameRegistry.registerBlock(block_dineutronium, block_dineutronium.getUnlocalizedName());
 		GameRegistry.registerBlock(block_magnetized_tungsten, block_magnetized_tungsten.getUnlocalizedName());
 		GameRegistry.registerBlock(block_combine_steel, block_combine_steel.getUnlocalizedName());
-		GameRegistry.registerBlock(block_mud, block_mud.getUnlocalizedName());
 		GameRegistry.registerBlock(block_desh, block_desh.getUnlocalizedName());
 		GameRegistry.registerBlock(block_dura_steel, block_dura_steel.getUnlocalizedName());
 		GameRegistry.registerBlock(block_starmetal, block_starmetal.getUnlocalizedName());
@@ -2697,8 +2690,6 @@ public class ModBlocks {
 		GameRegistry.registerBlock(brick_compound, ItemBlockBlastInfo.class, brick_compound.getUnlocalizedName());
 		GameRegistry.registerBlock(brick_light, ItemBlockBlastInfo.class, brick_light.getUnlocalizedName());
 		GameRegistry.registerBlock(brick_asbestos, brick_asbestos.getUnlocalizedName());
-		GameRegistry.registerBlock(brick_tektite, brick_tektite.getUnlocalizedName());
-		GameRegistry.registerBlock(brick_ash, brick_ash.getUnlocalizedName());
 		GameRegistry.registerBlock(brick_fire, ItemBlockBlastInfo.class, brick_fire.getUnlocalizedName());
 
 		GameRegistry.registerBlock(concrete_slab, ItemModSlab.class, concrete_slab.getUnlocalizedName());
