@@ -1377,6 +1377,7 @@ hbmfluid.coaloil=Coal Oil
 hbmfluid.colloid=Colloid
 hbmfluid.coolant=Coolant
 hbmfluid.coolant_hot=Hot Coolant
+hbmfluid.coolant_hotter=Hotter Coolant
 hbmfluid.crackoil=Cracked Oil
 hbmfluid.crackoil_ds=Desulfurized Cracked Oil
 hbmfluid.cryogel=Cryogel

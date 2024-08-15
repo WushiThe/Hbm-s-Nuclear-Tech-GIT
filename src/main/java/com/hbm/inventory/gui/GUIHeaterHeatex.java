@@ -102,7 +102,7 @@ public class GUIHeaterHeatex extends GuiInfoContainer {
 	protected void keyTyped(char c, int i) {
 
 		if(this.fieldCycles.textboxKeyTyped(c, i)) {
-			int cyc = Math.max(NumberUtils.toInt(this.fieldCycles.getText()), 1);
+			int cyc = Math.max(NumberUtils.toInt(this.fieldCycles.getText()), 2);
 			NBTTagCompound data = new NBTTagCompound();
 			data.setInteger("toCool", cyc);
 			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, heater.xCoord, heater.yCoord, heater.zCoord));

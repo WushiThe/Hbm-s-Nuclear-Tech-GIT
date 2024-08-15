@@ -54,8 +54,8 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 	public TileEntityICF() {
 		super(12);
 		this.tanks = new FluidTank[3];
-		this.tanks[0] = new FluidTank(Fluids.SODIUM, 512_000);
-		this.tanks[1] = new FluidTank(Fluids.SODIUM_HOT, 512_000);
+		this.tanks[0] = new FluidTank(Fluids.SODIUM, 102_400_000);
+		this.tanks[1] = new FluidTank(Fluids.SODIUM_HOT, 102_400_000);
 		this.tanks[2] = new FluidTank(Fluids.STELLAR_FLUX, 24_000);
 	}
 

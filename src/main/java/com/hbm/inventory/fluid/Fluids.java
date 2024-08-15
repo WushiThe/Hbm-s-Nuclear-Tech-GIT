@@ -43,6 +43,7 @@ public class Fluids {
 	public static FluidType ULTRAHOTSTEAM;
 	public static FluidType COOLANT;
 	public static FluidType COOLANT_HOT;
+	public static FluidType COOLANT_HOTTER;
 	public static FluidType LAVA;
 	public static FluidType DEUTERIUM;
 	public static FluidType TRITIUM;
@@ -380,6 +381,7 @@ public class Fluids {
 		STELLAR_FLUX =			new FluidType("STELLAR_FLUX",		0xE300FF, 0, 4, 4, EnumSymbol.ANTIMATTER).addTraits(ANTI, GASEOUS);
 		VITRIOL =				new FluidType("VITRIOL",			0x6E5222, 2, 0, 1, EnumSymbol.NONE).addTraits(LIQUID, VISCOUS);
 		SLOP =					new FluidType(141, "SLOP",			0x929D45, 0, 0, 0, EnumSymbol.NONE).addTraits(LIQUID, VISCOUS);
+		COOLANT_HOTTER =		new FluidType("COOLANT_HOTTER",			0xff5252, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
 		
 		// ^ ^ ^ ^ ^ ^ ^ ^
 		//ADD NEW FLUIDS HERE
@@ -409,6 +411,7 @@ public class Fluids {
 		metaOrder.add(CARBONDIOXIDE);
 		metaOrder.add(COOLANT);
 		metaOrder.add(COOLANT_HOT);
+		metaOrder.add(COOLANT_HOTTER);
 		metaOrder.add(CRYOGEL);
 		metaOrder.add(MUG);
 		metaOrder.add(MUG_HOT);
@@ -600,6 +603,9 @@ public class Fluids {
 
 		COOLANT.addTraits(new FT_Heatable().setEff(HeatingType.HEATEXCHANGER, 1.0D).setEff(HeatingType.PWR, 1.0D).setEff(HeatingType.ICF, 1.0D).addStep(300, 1, COOLANT_HOT, 1));
 		COOLANT_HOT.addTraits(new FT_Coolable(COOLANT, 1, 1, 300).setEff(CoolingType.HEATEXCHANGER, 1.0D));
+
+		COOLANT_HOT.addTraits(new FT_Heatable().setEff(HeatingType.HEATEXCHANGER, 1.0D).setEff(HeatingType.PWR, 1.0D).setEff(HeatingType.ICF, 1.0D).addStep(300, 1, COOLANT_HOTTER, 1));
+		COOLANT_HOTTER.addTraits(new FT_Coolable(COOLANT_HOT, 1, 1, 750).setEff(CoolingType.HEATEXCHANGER, 1.0D));
 		
 		MUG.addTraits(new FT_Heatable().setEff(HeatingType.HEATEXCHANGER, 1.0D).setEff(HeatingType.PWR, 1.0D).setEff(HeatingType.ICF, 1.25D).addStep(400, 1, MUG_HOT, 1), new FT_PWRModerator(1.15D));
 		MUG_HOT.addTraits(new FT_Coolable(MUG, 1, 1, 400).setEff(CoolingType.HEATEXCHANGER, 1.0D));
