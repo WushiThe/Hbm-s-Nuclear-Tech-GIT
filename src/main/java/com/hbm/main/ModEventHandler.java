@@ -1,7 +1,9 @@
 package com.hbm.main;
 
+
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+
 import com.hbm.blocks.IStepTickReceiver;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.generic.BlockAshes;
@@ -657,7 +659,7 @@ public class ModEventHandler {
 
 				List loadedEntityList = new ArrayList();
 				loadedEntityList.addAll(event.world.loadedEntityList); // ConcurrentModificationException my balls
-				
+
 				for(Object e : loadedEntityList) {
 
 					if(e instanceof EntityItem) {
@@ -1214,25 +1216,49 @@ public class ModEventHandler {
 	@SubscribeEvent
 	public void onClickSign(PlayerInteractEvent event) {
 
+		if (event.world.isRemote) return;
+
 		int x = event.x;
-		int y = event.z;
-		int z = event.y;
+		int y = event.y;
+		int z = event.z;
 		World world = event.world;
 
-		if(!world.isRemote && event.action == Action.RIGHT_CLICK_BLOCK && world.getTileEntity(x, y, z) instanceof TileEntitySign) {
+		if (!(world.getTileEntity(x, y, z) instanceof TileEntitySign)) return;
 
-			TileEntitySign sign = (TileEntitySign)world.getTileEntity(x, y, z);
+		TileEntitySign sign = (TileEntitySign) world.getTileEntity(x, y, z);
 
-			String result = ShadyUtil.smoosh(sign.signText[0], sign.signText[1], sign.signText[2], sign.signText[3]);
+		String line1 = sign.signText[0];
+		String line2 = sign.signText[1];
+		String line3 = sign.signText[2];
+		String line4 = sign.signText[3];
 
-			if(ShadyUtil.hashes.contains(result)) {
-				world.func_147480_a(x, y, z, false);
-				EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(ModItems.bobmazon_hidden));
-				entityitem.delayBeforeCanPickup = 10;
-				world.spawnEntityInWorld(entityitem);
+		MainRegistry.logger.info("[DEBUG] Sign clicked at: " + x + "," + y + "," + z);
+		MainRegistry.logger.info("Line 1: " + line1);
+		MainRegistry.logger.info("Line 2: " + line2);
+		MainRegistry.logger.info("Line 3: " + line3);
+		MainRegistry.logger.info("Line 4: " + line4);
+
+		String hash = ShadyUtil.smoosh(line1, line2, line3, line4);
+		MainRegistry.logger.info("Generated hash: " + hash);
+
+		if (ShadyUtil.hashes.contains(hash)) {
+			MainRegistry.logger.info("Match found! Unlocking secret...");
+			world.func_147480_a(x, y, z, false); // break block
+
+			EntityItem entityitem = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModItems.bobmazon_hidden));
+			entityitem.delayBeforeCanPickup = 10;
+			world.spawnEntityInWorld(entityitem);
+		} else {
+			MainRegistry.logger.info("No match.");
+		}
+
+			if (ShadyUtil.hashes.contains(hash)) {
+				MainRegistry.logger.info("Hash match! Unlocking...");
+				// existing unlock code here...
+			} else {
+				MainRegistry.logger.info("No hash match.");
 			}
 		}
-	}
 
 	@SubscribeEvent
 	public void chatEvent(ServerChatEvent event) {

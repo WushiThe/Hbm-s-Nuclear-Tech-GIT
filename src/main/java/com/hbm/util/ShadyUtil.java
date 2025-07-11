@@ -59,6 +59,10 @@ public class ShadyUtil {
 	static {
 		hashes.add("41de5c372b0589bbdb80571e87efa95ea9e34b0d74c6005b8eab495b7afd9994");
 		hashes.add("31da6223a100ed348ceb3254ceab67c9cc102cb2a04ac24de0df3ef3479b1036");
+		hashes.add("a8a81e885906c35ea8e0fd96e379c81999504fefc174104ed71351f5b5c8e89f"); // popbob, bobcat, catalog, dyx
+		hashes.add("db331e2adfa1e9de121a3f11232e5b304bc50e3cd37893d5a6ea7a13fa70de6e"); // the real, answer, is not, popbob
+		hashes.add("61b933ae5f9f7997ca39df1395fc00e29df5a8cf846d86e2f03070463fba618c"); // hello, my name is, goob, (not real)
+		hashes.add("0b3b5ee0de9c79e80c65df87e38347062a20864d5ec72459fe7b8a3daddd64bf"); // :3, :3, :3, :3
 	}
 
 	public static final int c = 0x3d;
@@ -136,7 +140,7 @@ public class ShadyUtil {
 
 	public static void test() {
 		if(!GeneralConfig.enableDebugMode) return; //only run in debug mode
-		
+
 		//unit test for smooshing
 		MainRegistry.logger.debug(smoosh(smTest1, smTest2, smTest3, smTest4));
 
