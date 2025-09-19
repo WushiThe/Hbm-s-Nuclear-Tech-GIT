@@ -63,6 +63,7 @@ public class ShadyUtil {
 		hashes.add("db331e2adfa1e9de121a3f11232e5b304bc50e3cd37893d5a6ea7a13fa70de6e"); // the real, answer, is not, popbob
 		hashes.add("61b933ae5f9f7997ca39df1395fc00e29df5a8cf846d86e2f03070463fba618c"); // hello, my name is, goob, (not real)
 		hashes.add("0b3b5ee0de9c79e80c65df87e38347062a20864d5ec72459fe7b8a3daddd64bf"); // :3, :3, :3, :3
+		hashes.add("ca22ec517e8d234e7fb1f43b611bc306459ac1ca9d9ca751d6c4ab87708f02e1"); // popbob, popbob, popbob, popbob
 	}
 
 	public static final int c = 0x3d;
