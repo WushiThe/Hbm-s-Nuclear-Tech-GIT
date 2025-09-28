@@ -12,9 +12,9 @@ public class ItemPoolsSatellite {
 
 	public static final String POOL_SAT_MINER = "POOL_SAT_MINER";
 	public static final String POOL_SAT_LUNAR = "POOL_SAT_LUNAR"; //woona
-	
+
 	public static void init() {
-		
+
 		new ItemPool(POOL_SAT_MINER) {{
 			this.pool = new WeightedRandomChestContent[] {
 					weighted(ModItems.powder_aluminium, 0, 3, 3, 10),
@@ -45,16 +45,10 @@ public class ItemPoolsSatellite {
 					weighted(ModItems.crystal_lithium, 0, 2 ,2, 4)
 			};
 		}};
-		
+
 		new ItemPool(POOL_SAT_LUNAR) {{
 			this.pool = new WeightedRandomChestContent[] {
-					weighted(ModBlocks.moon_turf, 0, 48, 48, 5),
-					weighted(ModBlocks.moon_turf, 0, 32, 32, 7),
-					weighted(ModBlocks.moon_turf, 0, 16, 16, 5),
-					weighted(ModItems.powder_lithium, 0, 3, 3, 5),
-					weighted(ModItems.powder_iron, 0, 3, 3, 5),
-					weighted(ModItems.crystal_iron, 0, 1, 1, 1),
-					weighted(ModItems.crystal_lithium, 0, 1, 1, 1)
+					weighted(ModBlocks.moon_turf, 0, 1, 1, 1),
 			};
 		}};
 	}

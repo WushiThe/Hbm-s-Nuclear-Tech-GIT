@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class TileEntityMachineSatDock extends TileEntity implements ISidedInventory, IGUIProvider {
-	
+
 	private ItemStack[] slots;
 	private static final int[] access = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
 
@@ -143,7 +143,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 
 				Satellite sat = data.getSatFromFreq(freq);
 
-				int delay = 10 * 60 * 1000;
+				int delay = 45 * 1000;
 
 				if(sat instanceof SatelliteMiner) {
 					SatelliteMiner miner = (SatelliteMiner) sat;
