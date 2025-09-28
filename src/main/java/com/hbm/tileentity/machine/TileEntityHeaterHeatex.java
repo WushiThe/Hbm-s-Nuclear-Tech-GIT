@@ -62,7 +62,7 @@ public class TileEntityHeaterHeatex extends TileEntityMachineBase implements IHe
 			this.setupTanks();
 			this.updateConnections();
 
-			this.heatEnergy *= 0.999;
+			this.heatEnergy *= 1;
 
 			tanks[0].serialize(buf);
 

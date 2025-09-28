@@ -48,7 +48,7 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 
 	/* CONFIGURABLE */
 	public static int maxHeat = 3_200_000;
-	public static double diffusion = 0.1D;
+	public static double diffusion = 0D;
 	public static boolean canExplode = true;
 
 	public TileEntityHeatBoiler() {
